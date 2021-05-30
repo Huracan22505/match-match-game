@@ -93,11 +93,19 @@ function resetEverything() {
   minutes = 0;
   timeCounter.innerHTML =
     "<i class='fa fa-hourglass-start'></i>" + ' Timer: 00:00';
-  // Clear both arrays that hold the opened and matched cards
   matched = [];
   opened = [];
-  // Clear the deck
   removeCard();
-  // Create a new deck
   startGame();
+}
+
+function compareTwo() {
+  if (opened.length === 2) {
+    document.body.style.pointerEvents = 'none';
+  }
+  if (opened.length === 2 && opened[0].src === opened[1].src) {
+    match();
+  } else if (opened.length === 2 && opened[0].src != opened[1].src) {
+    noMatch();
+  }
 }
