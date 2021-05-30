@@ -74,11 +74,10 @@ function timer() {
     }
     timeCounter.innerHTML =
       "<i class='fa fa-hourglass-start'></i>" +
-      ' Timer: ' +
       minutes +
-      ' Mins ' +
+      ' mins ' +
       seconds +
-      ' Secs';
+      ' secs';
   }, 1000);
 }
 
@@ -142,3 +141,36 @@ function displayModal() {
     }
   };
 }
+
+function winGame() {
+  if (matched.length === 16) {
+    stopTime();
+    displayModal();
+  }
+}
+deck.addEventListener('click', function (evt) {
+  if (evt.target.nodeName === 'LI') {
+    if (timeStart === false) {
+      timeStart = true;
+      timer();
+    }
+    flipCard();
+  }
+
+  function flipCard() {
+    evt.target.classList.add('flip');
+    addToOpened();
+  }
+
+  function addToOpened() {
+    if (opened.length === 0 || opened.length === 1) {
+      opened.push(evt.target.firstElementChild);
+    }
+    compareTwo();
+  }
+});
+reset.addEventListener('click', resetEverything);
+playAgain.addEventListener('click', function () {
+  modal.style.display = 'none';
+  resetEverything();
+});
