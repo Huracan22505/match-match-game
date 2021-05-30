@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  /* background: url(https://html5book.ru/wp-content/uploads/2015/07/background39.png); */
+  background: url(https://html5book.ru/wp-content/uploads/2015/07/background39.png);
   font-family: 'Open Sans', sans-serif;
   font-size: 62.5%;
   letter-spacing: 1.5px;
@@ -105,15 +105,22 @@ h1 {
   background: #000;
 }
 .timer-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
   width: 255px;
   height: 65px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
 }
 .timer {
   font-family: Roboto;
-  font-style: normal;
+  font-style: 400;
   font-weight: 500;
   font-size: 36px;
   line-height: 30px;
@@ -121,4 +128,55 @@ h1 {
   letter-spacing: 0.15px;
 
   color: rgba(0, 0, 0, 0.4);
+}
+
+/*Modal*/
+.modal {
+  /* display: none; */
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(46, 61, 73);
+  background-color: rgba(46, 61, 73, 0.6);
+}
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin: 5% auto;
+  border: 0.4em solid rgb(10, 206, 69);
+  padding-right: 2em;
+  width: 600px;
+}
+
+.modal-content > h2 {
+  font-size: 20px;
+}
+/* Close Button */
+.close {
+  align-self: flex-end;
+  color: rgb(49, 36, 231);
+  font-size: 5em;
+}
+.close:hover,
+.close:focus {
+  color: #5cf;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Modal Image*/
+.modal-img {
+  display: inline-block;
+  margin: 1em 0 1em;
+  width: 20em;
+}
+.play-again-btn {
+  background: rgb(5, 180, 93);
+  margin-bottom: 1em;
 }
