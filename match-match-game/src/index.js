@@ -56,4 +56,48 @@ function startGame() {
     deck.appendChild(liTag);
   }
 }
+
 startGame();
+
+function removeCard() {
+  while (deck.hasChildNodes()) {
+    deck.removeChild(deck.firstChild);
+  }
+}
+
+function timer() {
+  time = setInterval(function () {
+    seconds++;
+    if (seconds === 60) {
+      minutes++;
+      seconds = 0;
+    }
+    timeCounter.innerHTML =
+      "<i class='fa fa-hourglass-start'></i>" +
+      ' Timer: ' +
+      minutes +
+      ' Mins ' +
+      seconds +
+      ' Secs';
+  }, 1000);
+}
+
+function stopTime() {
+  clearInterval(time);
+}
+
+function resetEverything() {
+  stopTime();
+  timeStart = false;
+  seconds = 0;
+  minutes = 0;
+  timeCounter.innerHTML =
+    "<i class='fa fa-hourglass-start'></i>" + ' Timer: 00:00';
+  // Clear both arrays that hold the opened and matched cards
+  matched = [];
+  opened = [];
+  // Clear the deck
+  removeCard();
+  // Create a new deck
+  startGame();
+}
