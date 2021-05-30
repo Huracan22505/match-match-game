@@ -4,25 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>match-match-game</title>
   </head>
   <body class="container">
     <header class="header">
       <h1>Match match game</h1>
-      <h2>Animals edition</h2>
     </header>
     <section class="score-panel">
-      <h3>Score Panel</h3>
-      <ul id="star-rating" class="star-rating">
-        <li class="star"><i class="fa fa-star"></i></li>
-        <li class="star"><i class="fa fa-star"></i></li>
-        <li class="star"><i class="fa fa-star"></i></li>
-      </ul>
-      <span class="moves-counter">0</span> Moves
       <div class="timer-container">
-        <span class="timer"
-          ><i class="fa fa-hourglass-start"></i> Timer: 00:00</span
-        >
+        <span class="timer"><i class="fa fa-hourglass-start"></i>00:00</span>
       </div>
       <div class="reset">
         <button class="btn reset-btn">
@@ -48,5 +48,6 @@
       </div>
     </section>
     <ul class="deck"></ul>
+    <!-- <img src="./images/buffalo.png" alt="" /> -->
   </body>
 </html>
