@@ -1,9 +1,9 @@
 import './style.scss';
 import { App } from './app';
 
-// let time;
-// let minutes = 0;
-// let seconds = 0;
+let time;
+let minutes = 0;
+let seconds = 0;
 
 window.onload = () => {
   const appElement = document.getElementById('app');
@@ -34,7 +34,7 @@ window.onload = () => {
   divWrapper.append(divInfo);
 
   const divAbout = document.createElement('div');
-  divAbout.innerHTML = 'About game';
+  divAbout.innerHTML = 'About';
   divAbout.classList.add('about');
 
   const divScore = document.createElement('div');
@@ -58,18 +58,22 @@ window.onload = () => {
   headerImg.classList.add('header-img');
   divWrapper.append(headerImg);
 
-  // const timer = () => {
-  //   time = setInterval((): void => {
-  //     seconds++;
-  //     if (seconds === 60) {
-  //       minutes++;
-  //       seconds = 0;
-  //     }
-  //     header.innerHTML = `<i class='fa fa-hourglass-start'></i>${minutes}mins${seconds}secs`;
-  //   }, 1000);
-  // };
+  const timer = document.createElement('div');
+  timer.innerHTML = '00:00';
+  appElement?.append(timer);
 
-  // timer();
+  const gameTime = () => {
+    time = setInterval((): void => {
+      seconds++;
+      if (seconds === 60) {
+        minutes++;
+        seconds = 0;
+      }
+      timer.innerHTML = `<i class='fa fa-hourglass-start'></i>${minutes} mins ${seconds} secs`;
+    }, 1000);
+  };
+
+  gameTime();
 
   // const stopTime = () => {
   //   clearInterval(time);
