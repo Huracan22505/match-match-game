@@ -2,51 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <title>match-match-game</title>
+    <title>Match Match</title>
   </head>
-  <body class="container">
-    <header class="header">
-      <h1>Match match game</h1>
-    </header>
-    <section class="score-panel">
-      <div class="timer-container">
-        <span class="timer"><i class="fa fa-hourglass-start"></i>00:00</span>
-      </div>
-      <div class="reset">
-        <button class="btn reset-btn">
-          Reset <i class="fa fa-repeat"></i>
-        </button>
-      </div>
-    </section>
-    <!-- Modal -->
-    <section class="win-game-modal">
-      <div id="modal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Congratulations!</h2>
-          <p>You successfully found all matches</p>
-          <img
-            class="modal-img"
-            src="./images/win.png"
-            alt="Vault boy giving the thumbs up from the game fall out"
-          />
-          <button class="btn play-again-btn">Play Again?</button>
-        </div>
-      </div>
-    </section>
-    <ul class="deck"></ul>
-  </body>
+  <body id="app"></body>
 </html>

@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 20px;
+}
+
+body {
+  color: white;
+  background-color: rgb(74, 101, 117);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 1440px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+footer {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  background: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+  display: flex;
+  align-items: center;
+}
+.wrapper {
+  width: 1440px;
+  height: 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin-right: 128px;
+}
+.logo-up,
+.logo-down {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.logo-up {
+  color: white;
+  /* background-color: #3EC4DB; */
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-down {
+  color: #125f6f;
+  /* background-color: #3EC4DB; */
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 676px;
+}
+.about {
+  width: 96px;
+  height: 50px;
+  background-color: teal;
+}
+.score {
+  width: 96px;
+  height: 50px;
+  background-color: rgb(34, 0, 128);
+}
+.setting {
+  width: 96px;
+  height: 50px;
+  background-color: rgb(117, 0, 128);
+}
+.btn {
+  width: 122px;
+  height: 36px;
+  background: #f2f9fe;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
+    0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  color: #2196f3;
+  margin-right: 37px;
+}
+.header-img {
+  width: 40px;
+  height: 40px;
+  // background-image: url("./assets/header-img.png");
+  border-radius: 50%;
+}
