@@ -78,6 +78,7 @@ window.onload = () => {
   // const stopTime = () => {
   //   clearInterval(time);
   // };
+
   if (!appElement) throw Error('App root element not found');
 
   new App(appElement).start();
