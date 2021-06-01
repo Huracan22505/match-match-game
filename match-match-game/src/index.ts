@@ -69,13 +69,12 @@ window.onload = () => {
   //   }, 1000);
   // };
 
-  // if (!appElement) throw Error('App root element not found');
   // timer();
 
   // const stopTime = () => {
   //   clearInterval(time);
   // };
-  console.log(window.location);
+  if (!appElement) throw Error('App root element not found');
 
   new App(appElement).start();
 };

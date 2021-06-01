@@ -1,8 +1,13 @@
-.cards-field{
-  width:100%;
-  display:flex;
+.cards-field {
+  margin-top: 50px;
+
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
 }
