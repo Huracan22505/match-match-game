@@ -50,9 +50,13 @@ window.onload = () => {
   divInfo.append(divSetting);
 
   const button = document.createElement('button');
-  button.innerHTML = 'Stop game';
+  button.innerHTML = 'Restart game';
   button.classList.add('btn');
   divWrapper.append(button);
+
+  button.addEventListener('click', () => {
+    window.location.reload();
+  });
 
   const headerImg = document.createElement('div');
   headerImg.classList.add('header-img');
