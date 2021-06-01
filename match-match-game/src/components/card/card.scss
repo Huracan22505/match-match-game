@@ -44,8 +44,9 @@
   }
 
   &__front {
-    // background-color: crimson;
     box-shadow: 0 0 0.8rem rgba(237, 58, 243, 0.973);
+    background-size: 110px;
+    background-repeat: no-repeat;
   }
 
   &__back {
