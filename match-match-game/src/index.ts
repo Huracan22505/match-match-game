@@ -104,11 +104,32 @@ function createAboutMarkup(): string {
 navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
 
 function createScoreMarkup(): string {
-  return `<img
-      src="https://clip2net.com/clip/m231034/80899-clip-37kb.png?nocache=1"
-      alt=""
-      style="margin-top: 20px"
-    />`;
+  return `    <section class="score-section">
+      <div class="container">
+        <h2 class="title">Best players</h2>
+        <div class="score-container">
+          <ul class="score-list">
+            <li class="item list">
+              <p class="name">Nicci Troiani</p>
+              <p class="rating">Score: <span class="count">456</span></p>
+            </li>
+            <li class="item list">
+              <p class="name">George Fields</p>
+              <p class="rating">Score: <span class="count">358</span></p>
+            </li>
+            <li class="item list">
+              <p class="name">Jones Dermot</p>
+              <p class="rating">Score: <span class="count">211</span></p>
+            </li>
+            <li class="item list">
+              <p class="name">Jane Doe</p>
+              <p class="rating">Score: <span class="count">169</span></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+`;
 }
 
 function createSettingsMarkup(): string {

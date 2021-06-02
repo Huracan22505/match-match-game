@@ -1,0 +1,47 @@
+.score-section {
+  padding-top: 33px;
+  .score-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title {
+    padding-left: 400px;
+    margin-bottom: 30px;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.15px;
+    color: #333333;
+  }
+}
+
+.score-list {
+  width: 600px;
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.1px;
+    color: #333333;
+
+    .rating {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  .count {
+    margin-left: 5px;
+
+    color: #2196f3;
+  }
+}
