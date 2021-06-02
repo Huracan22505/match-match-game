@@ -21,7 +21,8 @@
     margin-bottom: 8px;
 
     background-color: #2196f3;
-    border: 1px solid #9ca498;
+    border: 2px solid #878b89;
+    outline: none;
 
     &::placeholder {
       font-family: Roboto;
@@ -56,5 +57,9 @@
 
   .button.invalid {
     background: rgb(158, 152, 152);
+  }
+
+  .form-invalid {
+    border: 2px solid #f00808;
   }
 }

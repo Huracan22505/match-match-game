@@ -151,21 +151,22 @@ function createFormMarkup(): string {
           title="- Имя не может быть пустым.
                  - Имя не может состоять из цифр.
                  - Имя не может содержать служебные символы"
-          pattern="[a-zA-Z]+"
+          pattern="[a-zA-Zа-яА-Я]+"
+          max="5"
           placeholder="First name"
         />
         <br />
 
-        <label class="label" for="name"></label>
+        <label class="label" for="lastName"></label>
         <input
           class="input"
           type="text"
-          id="name"
+          id="lastName"
           required
           title="- Имя не может быть пустым.
                  - Имя не может состоять из цифр.
                  - Имя не может содержать служебные символы"
-          pattern="[a-zA-Z]+"
+          pattern="[a-zA-Zа-яА-Я]+"
           placeholder="Last name"
         />
         <br />
@@ -198,19 +199,19 @@ if (!sendButton) throw Error('App root element not found');
 const nameField = document.getElementById('name');
 if (!nameField) throw Error('App root element not found');
 
+const lastNameField = document.getElementById('lastName');
+if (!lastNameField) throw Error('App root element not found');
+
 const emailField = document.getElementById('email');
 if (!emailField) throw Error('App root element not found');
 
-// const validate = () => {
-//   if (
-//     nameField.validity.valid &&
-//     emailField.validity.valid &&
-//   ) {
-//     sendButton.classList.remove('invalid');
-//   } else {
-//     sendButton.classList.add('invalid');
-//   }
-// };
+const validate = () => {
+  if (nameField.validity.valid && emailField.validity.valid) {
+    sendButton.classList.remove('invalid');
+  } else {
+    sendButton.classList.add('invalid');
+  }
+};
 
 registrationBtn.addEventListener('click', () => {
   document.body.classList.add('notScrollable');
@@ -236,11 +237,34 @@ const onSendBtnClick = (e: { preventDefault: () => void }) => {
 sendButton.addEventListener('click', onSendBtnClick);
 
 nameField.addEventListener('input', () => {
-  // validate();
+  if (!nameField.validity.valid) {
+    nameField.classList.add('form-invalid');
+  } else {
+    nameField.classList.remove('form-invalid');
+  }
+  validate();
+});
+
+lastNameField.addEventListener('input', () => {
+  if (!lastNameField.validity.valid) {
+    lastNameField.classList.add('form-invalid');
+  } else {
+    lastNameField.classList.remove('form-invalid');
+  }
+  validate();
 });
 
 emailField.addEventListener('input', () => {
-  // validate();
+  if (!emailField.validity.valid) {
+    emailField.classList.add('form-invalid');
+  } else {
+    emailField.classList.remove('form-invalid');
+  }
+  validate();
+});
+
+emailField.addEventListener('input', () => {
+  validate();
 });
 
 // TIMER
