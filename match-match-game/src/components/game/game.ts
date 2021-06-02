@@ -18,7 +18,7 @@ export class Game extends BaseComponent {
     this.element.appendChild(this.cardsField.element);
   }
 
-  newGame(images: string[]) {
+  newGame(images: string[]): void {
     this.cardsField.clear();
     const cards = images
       .concat(images)

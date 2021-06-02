@@ -16,11 +16,12 @@ export class Card extends BaseComponent {
     </div>`;
   }
 
-  flipToBack() {
+  flipToBack(): Promise<void> {
     this.isFlipped = true;
     return this.flip(true);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   flipToFront() {
     this.isFlipped = false;
     return this.flip();
