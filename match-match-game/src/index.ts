@@ -59,6 +59,13 @@ const headerImg = document.createElement('div');
 headerImg.classList.add('header-img');
 divWrapper.append(headerImg);
 
+const startBtn = document.createElement('button');
+startBtn.classList.add('about');
+startBtn.innerHTML = 'start game';
+appElement.append(startBtn);
+
+// BACKDROP
+
 function createBackdropMarkup() {
   return "<div class='cover hidden' id='cover'></div>";
 }
@@ -67,7 +74,8 @@ const backdropMarkup = createBackdropMarkup();
 
 appElement.insertAdjacentHTML('beforeend', backdropMarkup);
 
-// REGISTRATION FORM
+// ROUTING
+
 const navWrapper = document.createElement('div');
 appElement.append(navWrapper);
 
@@ -75,15 +83,24 @@ function createAboutMarkup() {
   return `<img
       src="https://clip2net.com/clip/m231034/629d4-clip-139kb.jpg?nocache=1"
       alt=""
-      style="margin-top: 50px"
+      style="margin-top: 20px"
     />`;
 }
 navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
+
 function createScoreMarkup() {
   return `<img
       src="https://clip2net.com/clip/m231034/80899-clip-37kb.png?nocache=1"
       alt=""
-      style="margin-top: 50px"
+      style="margin-top: 20px"
+    />`;
+}
+
+function createSettingsMarkup() {
+  return `<img
+      src="https://clip2net.com/clip/m231034/ce636-clip-27kb.png?nocache=1"
+      alt=""
+      style="margin-top: 20px"
     />`;
 }
 
@@ -96,8 +113,16 @@ function aboutRender() {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
 }
+
+function settingsRender() {
+  navWrapper.innerHTML = '';
+  navWrapper.insertAdjacentHTML('beforeend', createSettingsMarkup());
+}
 divScore.addEventListener('click', scoreRender);
 divAbout.addEventListener('click', aboutRender);
+divSetting.addEventListener('click', settingsRender);
+
+// REGISTRATION FORM
 
 function createFormMarkup(): string {
   return `<div class="form-feedback hidden" id="form-feedback">
@@ -196,9 +221,14 @@ emailField.addEventListener('input', () => {
   // validate();
 });
 
-window.onload = () => {
-  // new App(appElement).start();
-};
+function startGame() {
+  navWrapper.innerHTML = '';
+  if (!appElement) throw Error('App root element not found');
+
+  new App(appElement).start();
+}
+
+startBtn.addEventListener('click', startGame);
 
 const timer = document.createElement('div');
 timer.innerHTML = '00:00';
