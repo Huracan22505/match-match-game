@@ -59,26 +59,6 @@ const headerImg = document.createElement('div');
 headerImg.classList.add('header-img');
 divWrapper.append(headerImg);
 
-const timer = document.createElement('div');
-timer.innerHTML = '00:00';
-appElement?.append(timer);
-
-const gameTimer = () => {
-  time = setInterval((): void => {
-    seconds++;
-    if (seconds === 60) {
-      minutes++;
-      seconds = 0;
-    }
-    timer.innerHTML = `<i class='fa fa-hourglass-start'></i>${minutes} mins ${seconds} secs`;
-  }, 1000);
-};
-
-gameTimer();
-
-// const stopTime = () => {
-//   clearInterval(time);
-// };
 function createBackdropMarkup() {
   return "<div class='cover hidden' id='cover'></div>";
 }
@@ -88,9 +68,36 @@ const backdropMarkup = createBackdropMarkup();
 appElement.insertAdjacentHTML('beforeend', backdropMarkup);
 
 // REGISTRATION FORM
+const navWrapper = document.createElement('div');
+appElement.append(navWrapper);
 
-const formWrapper = document.createElement('div');
-appElement.append(formWrapper);
+function createAboutMarkup() {
+  return `<img
+      src="https://clip2net.com/clip/m231034/629d4-clip-139kb.jpg?nocache=1"
+      alt=""
+      style="margin-top: 50px"
+    />`;
+}
+navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
+function createScoreMarkup() {
+  return `<img
+      src="https://clip2net.com/clip/m231034/80899-clip-37kb.png?nocache=1"
+      alt=""
+      style="margin-top: 50px"
+    />`;
+}
+
+function scoreRender() {
+  navWrapper.innerHTML = '';
+  navWrapper.insertAdjacentHTML('beforeend', createScoreMarkup());
+}
+
+function aboutRender() {
+  navWrapper.innerHTML = '';
+  navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
+}
+divScore.addEventListener('click', scoreRender);
+divAbout.addEventListener('click', aboutRender);
 
 function createFormMarkup(): string {
   return `<div class="form-feedback hidden" id="form-feedback">
@@ -190,5 +197,26 @@ emailField.addEventListener('input', () => {
 });
 
 window.onload = () => {
-  new App(appElement).start();
+  // new App(appElement).start();
 };
+
+const timer = document.createElement('div');
+timer.innerHTML = '00:00';
+// appElement.append(timer);
+
+const gameTimer = () => {
+  time = setInterval((): void => {
+    seconds++;
+    if (seconds === 60) {
+      minutes++;
+      seconds = 0;
+    }
+    timer.innerHTML = `<i class='fa fa-hourglass-start'></i>${minutes} mins ${seconds} secs`;
+  }, 1000);
+};
+
+// gameTimer();
+
+// const stopTime = () => {
+//   clearInterval(time);
+// };
