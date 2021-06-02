@@ -104,14 +104,14 @@ function createSettingsMarkup() {
     />`;
 }
 
-function scoreRender() {
-  navWrapper.innerHTML = '';
-  navWrapper.insertAdjacentHTML('beforeend', createScoreMarkup());
-}
-
 function aboutRender() {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
+}
+
+function scoreRender() {
+  navWrapper.innerHTML = '';
+  navWrapper.insertAdjacentHTML('beforeend', createScoreMarkup());
 }
 
 function settingsRender() {
@@ -133,6 +133,10 @@ function createFormMarkup(): string {
           type="text"
           id="name"
           required
+          title="- Имя не может быть пустым.
+                 - Имя не может состоять из цифр.
+                 - Имя не может содержать служебные символы"
+          pattern="[a-zA-Z]+"
           placeholder="First name"
         />
         <br />
@@ -143,6 +147,10 @@ function createFormMarkup(): string {
           type="text"
           id="name"
           required
+          title="- Имя не может быть пустым.
+                 - Имя не может состоять из цифр.
+                 - Имя не может содержать служебные символы"
+          pattern="[a-zA-Z]+"
           placeholder="Last name"
         />
         <br />
