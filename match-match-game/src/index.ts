@@ -221,18 +221,11 @@ emailField.addEventListener('input', () => {
   // validate();
 });
 
-function startGame() {
-  navWrapper.innerHTML = '';
-  if (!appElement) throw Error('App root element not found');
-
-  new App(appElement).start();
-}
-
-startBtn.addEventListener('click', startGame);
+// TIMER
 
 const timer = document.createElement('div');
 timer.innerHTML = '00:00';
-// appElement.append(timer);
+appElement.append(timer);
 
 const gameTimer = () => {
   time = setInterval((): void => {
@@ -245,8 +238,19 @@ const gameTimer = () => {
   }, 1000);
 };
 
-// gameTimer();
-
 // const stopTime = () => {
 //   clearInterval(time);
 // };
+
+function startGame() {
+  navWrapper.innerHTML = '';
+  if (!appElement) throw Error('App root element not found');
+
+  new App(appElement).start();
+
+  startBtn.removeEventListener('click', startGame);
+
+  gameTimer();
+}
+
+startBtn.addEventListener('click', startGame);
