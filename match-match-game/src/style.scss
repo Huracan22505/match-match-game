@@ -1,10 +1,15 @@
 @import "./components/regForm/regForm.scss";
+@import "./components/about/about.scss";
+
 html {
   font-size: 20px;
 }
 
 body {
+  font-family: Roboto;
+  font-style: normal;
   color: rgb(14, 13, 13);
+
   background-color: white;
 
   display: flex;
@@ -35,6 +40,10 @@ h6,
 p {
   margin: 0;
   padding: 0;
+}
+
+.list {
+  list-style: none;
 }
 
 .container {

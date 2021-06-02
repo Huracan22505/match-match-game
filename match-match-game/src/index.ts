@@ -76,19 +76,38 @@ appElement.insertAdjacentHTML('beforeend', backdropMarkup);
 
 // ROUTING
 
-const navWrapper = document.createElement('div');
+const navWrapper: HTMLDivElement = document.createElement('div');
 appElement.append(navWrapper);
 
-function createAboutMarkup() {
-  return `<img
-      src="https://clip2net.com/clip/m231034/629d4-clip-139kb.jpg?nocache=1"
-      alt=""
-      style="margin-top: 20px"
-    />`;
+function createAboutMarkup(): string {
+  return `    <section class="about-section">
+      <div class="container">
+        <h2 class="title">How to play?</h2>
+        <div class="about-container">
+          <ul class="step-list">
+            <li class="item list">
+              <div class="before">1</div>
+              <p class="text">Stay safe</p>
+            </li>
+            <li class="item list">
+              <div class="before">2</div>
+              <p class="text">Click "START GAME" button.</p>
+            </li>
+            <li class="item list">
+              <div class="before">3</div>
+              <p class="text">
+                Remember card positions and match it.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+`;
 }
 navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
 
-function createScoreMarkup() {
+function createScoreMarkup(): string {
   return `<img
       src="https://clip2net.com/clip/m231034/80899-clip-37kb.png?nocache=1"
       alt=""
@@ -96,7 +115,7 @@ function createScoreMarkup() {
     />`;
 }
 
-function createSettingsMarkup() {
+function createSettingsMarkup(): string {
   return `<img
       src="https://clip2net.com/clip/m231034/ce636-clip-27kb.png?nocache=1"
       alt=""
@@ -104,17 +123,17 @@ function createSettingsMarkup() {
     />`;
 }
 
-function aboutRender() {
+function aboutRender(): void {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
 }
 
-function scoreRender() {
+function scoreRender(): void {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createScoreMarkup());
 }
 
-function settingsRender() {
+function settingsRender(): void {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createSettingsMarkup());
 }
@@ -164,7 +183,6 @@ function createFormMarkup(): string {
           placeholder="E-mail"
         />
         <br />
-        <label class="label" for="text-feedback"></label>
         <button class="button invalid" id="send" type="submit">Add user</button>
       </form>
     </div>`;
@@ -233,7 +251,7 @@ emailField.addEventListener('input', () => {
 
 const timer = document.createElement('div');
 timer.innerHTML = '00:00';
-appElement.append(timer);
+// appElement.append(timer);
 
 const gameTimer = () => {
   time = setInterval((): void => {
