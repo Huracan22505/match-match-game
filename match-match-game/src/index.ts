@@ -55,10 +55,6 @@ registrationBtn.innerHTML = 'register new player';
 registrationBtn.classList.add('btn');
 divWrapper.append(registrationBtn);
 
-const headerImg = document.createElement('div');
-headerImg.classList.add('header-img');
-divWrapper.append(headerImg);
-
 const startBtn = document.createElement('button');
 startBtn.classList.add('about');
 startBtn.innerHTML = 'start game';
