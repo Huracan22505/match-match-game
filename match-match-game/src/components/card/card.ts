@@ -21,8 +21,7 @@ export class Card extends BaseComponent {
     return this.flip(true);
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  flipToFront() {
+  flipToFront(): Promise<void> {
     this.isFlipped = false;
     return this.flip();
   }

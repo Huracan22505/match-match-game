@@ -152,7 +152,7 @@ function createFormMarkup(): string {
                  - Имя не может состоять из цифр.
                  - Имя не может содержать служебные символы"
           pattern="[a-zA-Zа-яА-Я]+"
-          max="5"
+          maxlength="30"
           placeholder="First name"
         />
         <br />
@@ -167,6 +167,7 @@ function createFormMarkup(): string {
                  - Имя не может состоять из цифр.
                  - Имя не может содержать служебные символы"
           pattern="[a-zA-Zа-яА-Я]+"
+          maxlength="30"
           placeholder="Last name"
         />
         <br />
@@ -176,6 +177,7 @@ function createFormMarkup(): string {
           class="input"
           type="email"
           id="email"
+          maxlength="30"
           required
           placeholder="E-mail"
         />
@@ -196,13 +198,13 @@ if (!formElem) throw Error('App root element not found');
 const sendButton = document.getElementById('send');
 if (!sendButton) throw Error('App root element not found');
 
-const nameField = document.getElementById('name');
+const nameField = <HTMLInputElement>document.getElementById('name');
 if (!nameField) throw Error('App root element not found');
 
-const lastNameField = document.getElementById('lastName');
+const lastNameField = <HTMLInputElement>document.getElementById('lastName');
 if (!lastNameField) throw Error('App root element not found');
 
-const emailField = document.getElementById('email');
+const emailField = <HTMLInputElement>document.getElementById('email');
 if (!emailField) throw Error('App root element not found');
 
 const validate = () => {
@@ -239,8 +241,10 @@ sendButton.addEventListener('click', onSendBtnClick);
 nameField.addEventListener('input', () => {
   if (!nameField.validity.valid) {
     nameField.classList.add('form-invalid');
+    nameField.classList.remove('form-valid');
   } else {
     nameField.classList.remove('form-invalid');
+    nameField.classList.add('form-valid');
   }
   validate();
 });
@@ -248,8 +252,10 @@ nameField.addEventListener('input', () => {
 lastNameField.addEventListener('input', () => {
   if (!lastNameField.validity.valid) {
     lastNameField.classList.add('form-invalid');
+    lastNameField.classList.remove('form-valid');
   } else {
     lastNameField.classList.remove('form-invalid');
+    lastNameField.classList.add('form-valid');
   }
   validate();
 });
@@ -257,8 +263,10 @@ lastNameField.addEventListener('input', () => {
 emailField.addEventListener('input', () => {
   if (!emailField.validity.valid) {
     emailField.classList.add('form-invalid');
+    emailField.classList.remove('form-valid');
   } else {
     emailField.classList.remove('form-invalid');
+    emailField.classList.add('form-valid');
   }
   validate();
 });
