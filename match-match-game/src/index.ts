@@ -6,6 +6,7 @@ let minutes = 0;
 let seconds = 0;
 
 const appElement = document.getElementById('app');
+if (!appElement) throw Error('App root element not found');
 
 const header = document.createElement('header');
 header.classList.add('header');
@@ -79,7 +80,7 @@ gameTimer();
 //   clearInterval(time);
 // };
 function createBackdropMarkup() {
-  return `<div class='cover hidden' id='cover'></div>`;
+  return "<div class='cover hidden' id='cover'></div>";
 }
 
 const backdropMarkup = createBackdropMarkup();
@@ -87,6 +88,9 @@ const backdropMarkup = createBackdropMarkup();
 appElement.insertAdjacentHTML('beforeend', backdropMarkup);
 
 // REGISTRATION FORM
+
+const formWrapper = document.createElement('div');
+appElement.append(formWrapper);
 
 function createFormMarkup(): string {
   return `<div class="form-feedback hidden" id="form-feedback">
@@ -129,11 +133,19 @@ function createFormMarkup(): string {
 appElement.insertAdjacentHTML('beforeend', createFormMarkup());
 
 const coverElem = document.getElementById('cover');
+if (!coverElem) throw Error('App root element not found');
+
 const formElem = document.getElementById('form-feedback');
+if (!formElem) throw Error('App root element not found');
+
 const sendButton = document.getElementById('send');
+if (!sendButton) throw Error('App root element not found');
 
 const nameField = document.getElementById('name');
+if (!nameField) throw Error('App root element not found');
+
 const emailField = document.getElementById('email');
+if (!emailField) throw Error('App root element not found');
 
 // const validate = () => {
 //   if (
@@ -146,7 +158,7 @@ const emailField = document.getElementById('email');
 //   }
 // };
 
-registrationBtn.addEventListener('click', (e) => {
+registrationBtn.addEventListener('click', () => {
   document.body.classList.add('notScrollable');
   coverElem.classList.remove('hidden');
   formElem.classList.remove('hidden');
@@ -158,7 +170,7 @@ coverElem.addEventListener('click', () => {
   formElem.classList.add('hidden');
 });
 
-const onSendBtnClick = (e) => {
+const onSendBtnClick = (e: { preventDefault: () => void }) => {
   if (sendButton.classList.contains('invalid')) return;
   e.preventDefault();
 
@@ -178,7 +190,5 @@ emailField.addEventListener('input', () => {
 });
 
 window.onload = () => {
-  if (!appElement) throw Error('App root element not found');
-
   new App(appElement).start();
 };
