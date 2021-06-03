@@ -314,17 +314,17 @@ emailField.addEventListener('input', () => {
 // TIMER
 
 const timer = document.createElement('div');
-timer.innerHTML = '00:00';
-// appElement.append(timer);
 
 const gameTimer = () => {
   time = setInterval((): void => {
+    appElement.appendChild(timer);
+
     seconds++;
     if (seconds === 60) {
       minutes++;
       seconds = 0;
     }
-    timer.innerHTML = `<i class='fa fa-hourglass-start'></i>${minutes} mins ${seconds} secs`;
+    timer.innerHTML = `<span class='timer'>${minutes} mins ${seconds} secs</span>`;
   }, 1000);
 };
 
