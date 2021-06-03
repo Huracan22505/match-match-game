@@ -1,4 +1,5 @@
 import './style.scss';
+// eslint-disable-next-line import/no-cycle
 import { App } from './app';
 
 let time: NodeJS.Timeout;
@@ -328,7 +329,7 @@ const gameTimer = () => {
   }, 1000);
 };
 
-const stopTime = () => {
+const stopTime = (): void => {
   clearInterval(time);
   minutes = 0;
   seconds = 0;
@@ -356,3 +357,5 @@ function startGame() {
 }
 
 startBtn.addEventListener('click', startGame);
+
+export { stopTime };
