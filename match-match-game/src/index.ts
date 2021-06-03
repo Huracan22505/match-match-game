@@ -133,11 +133,26 @@ function createScoreMarkup(): string {
 }
 
 function createSettingsMarkup(): string {
-  return `<img
-      src="https://clip2net.com/clip/m231034/ce636-clip-27kb.png?nocache=1"
-      alt=""
-      style="margin-top: 20px"
-    />`;
+  return `    <section class="settings-section">
+      <div class="container">
+        <h2 class="title">Game cards</h2>
+        <select class="select-css">
+          <option>select game cards type</option>
+          <option>Animals</option>
+          <option>Cars</option>
+          <option>Fruits</option>
+          <option>Toys</option>
+        </select>
+        <h2 class="title">Difficulty</h2>
+        <select class="select-css">
+          <option>select game type</option>
+          <option>4x4</option>
+          <option>6x6</option>
+          <option>8x8</option>
+        </select>
+      </div>
+    </section>
+`;
 }
 
 function aboutRender(): void {
