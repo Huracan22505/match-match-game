@@ -1,7 +1,7 @@
 import './style.scss';
 import { App } from './app';
 
-let time;
+let time: NodeJS.Timeout;
 let minutes = 0;
 let seconds = 0;
 
@@ -328,17 +328,29 @@ const gameTimer = () => {
   }, 1000);
 };
 
-// const stopTime = () => {
-//   clearInterval(time);
-// };
+const stopTime = () => {
+  clearInterval(time);
+  minutes = 0;
+  seconds = 0;
+};
 
 function startGame() {
-  navWrapper.innerHTML = '';
-  if (!appElement) throw Error('App root element not found');
+  if (startBtn.innerHTML === 'RESTART') {
+    const cardsField = document.querySelector('.cards-field');
+    if (!cardsField) throw Error('App root element not found');
+    cardsField.remove();
+    stopTime();
+    timer.remove();
+  }
 
+  navWrapper.innerHTML = '';
+
+  if (!appElement) throw Error('App root element not found');
   new App(appElement).start();
 
-  startBtn.removeEventListener('click', startGame);
+  startBtn.innerHTML = 'RESTART';
+
+  // startBtn.removeEventListener('click', startGame);
 
   gameTimer();
 }
