@@ -3,7 +3,8 @@ import './endGame.scss';
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
-const createMarkup = (): string => `    <section class="win-game-modal">
+const createMarkup = (): string => `
+<section class="win-game-modal">
       <div id="modal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">

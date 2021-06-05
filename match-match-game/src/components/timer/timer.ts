@@ -12,9 +12,9 @@ const gameTimer = (): void => {
   time = setInterval((): void => {
     appElement.appendChild(timer);
 
-    seconds++;
+    seconds += 1;
     if (seconds === 60) {
-      minutes++;
+      minutes += 1;
       seconds = 0;
     }
     timer.innerHTML = `<span class='timer'>${minutes} mins ${seconds} secs</span>`;

@@ -1,6 +1,6 @@
-import './cards-field.scss';
 import { BaseComponent } from '../base-component';
 import { Card } from '../card/card';
+import './cards-field.scss';
 
 const SHOW_TIME = 3;
 

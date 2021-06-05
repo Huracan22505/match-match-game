@@ -7,11 +7,11 @@ const headerMarkupTemplate = (): string =>
           <p class="logo-up">Match</p>
           <p class="logo-down">Match</p>
         </div>
-        <div class="info">
-          <div class="about">About</div>
-          <div class="score">Score</div>
-          <div class="setting">Setting</div>
-        </div>
+        <ul class="info">
+          <li class="item">About</li>
+          <li class="item">Score</li>
+          <li class="item">Setting</li>
+        </ul>
         <button class="btn reg-btn">register new player</button>
       </div>
     </header>

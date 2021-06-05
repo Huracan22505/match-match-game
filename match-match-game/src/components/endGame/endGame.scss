@@ -10,6 +10,7 @@
   background-color: rgb(46, 61, 73);
   background-color: rgba(46, 61, 73, 0.6);
 }
+
 /* Modal Content/Box */
 .modal-content {
   display: flex;
@@ -20,7 +21,6 @@
   margin: 5% auto;
   border: 0.4em solid #2196f3;
   border-radius: 4px;
-  // padding-right: 2em;
   width: 600px;
 }
 
@@ -29,26 +29,30 @@
 
   font-size: 20px;
 }
+
 /* Close Button */
 .close {
-  margin-right: 15px;
+  margin-right: 16px;
 
   align-self: flex-end;
   color: #2196f3;
   font-size: 3em;
 }
+
 .close:hover,
 .close:focus {
   color: #5cf;
   text-decoration: none;
   cursor: pointer;
 }
+
 /* Modal Image*/
 .modal-img {
   display: inline-block;
   margin: 1em 0 1em;
   width: 17em;
 }
+
 .play-again-btn {
   background: rgb(5, 180, 93);
   margin-bottom: 1em;
