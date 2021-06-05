@@ -118,16 +118,19 @@ function createSettingsMarkup(): string {
 function aboutRender(): void {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
+  window.location.hash = 'about';
 }
 
 function scoreRender(): void {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createScoreMarkup());
+  window.location.hash = 'score';
 }
 
 function settingsRender(): void {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createSettingsMarkup());
+  window.location.hash = 'settings';
 }
 
 aboutBtn.addEventListener('click', aboutRender);
@@ -290,5 +293,32 @@ function startGame() {
 
   startBtn.innerHTML = 'RESTART';
 }
+
+// ROUTING
+
+const controller = (hash: string) => {
+  switch (hash) {
+    case 'about':
+      aboutRender();
+      break;
+    case 'score':
+      scoreRender();
+      break;
+    case 'settings':
+      settingsRender();
+      break;
+
+    default:
+      break;
+  }
+};
+
+const hendleHash = () => {
+  const hash = window.location.hash ? window.location.hash.slice(1) : '';
+
+  controller(hash);
+};
+
+window.addEventListener('hashchange', hendleHash);
 
 startBtn.addEventListener('click', startGame);
