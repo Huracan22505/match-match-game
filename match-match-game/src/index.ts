@@ -35,15 +35,15 @@ function createAboutMarkup(): string {
         <div class="about-container">
           <ul class="step-list">
             <li class="item list">
-              <div class="before">1</div>
+              <div class="numbering">1</div>
               <p class="text">Stay safe</p>
             </li>
             <li class="item list">
-              <div class="before">2</div>
+              <div class="numbering">2</div>
               <p class="text">Click "START GAME" button.</p>
             </li>
             <li class="item list">
-              <div class="before">3</div>
+              <div class="numbering">3</div>
               <p class="text">
                 Remember card positions and match it.
               </p>
@@ -179,3 +179,7 @@ const hendleHash = () => {
 };
 
 window.addEventListener('hashchange', hendleHash);
+
+const openRequest = indexedDB.open('Huracan22505', 1);
+
+console.log(openRequest);
