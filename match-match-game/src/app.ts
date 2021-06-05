@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import { Game } from './components/game/game';
 import { ImageCategory } from './models/image-category-model';
 
