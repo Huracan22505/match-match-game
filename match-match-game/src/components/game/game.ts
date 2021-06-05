@@ -2,8 +2,6 @@ import { delay } from '../../shared/delay';
 import { BaseComponent } from '../base-component';
 import { Card } from '../card/card';
 import { CardsField } from '../game-field/cards-field';
-// eslint-disable-next-line import/no-cycle
-import { stopTime } from '../../index';
 import { addWinModalMarkup } from '../endGame/endGame';
 
 const FLIP_DELAY = 500;
@@ -57,7 +55,6 @@ export class Game extends BaseComponent {
     );
 
     if (isCardsOpen) {
-      stopTime();
       addWinModalMarkup();
     }
   }

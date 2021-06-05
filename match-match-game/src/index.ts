@@ -1,10 +1,6 @@
 import './style.scss';
-// eslint-disable-next-line import/no-cycle
 import { App } from './app';
-
-let time: NodeJS.Timeout;
-let minutes = 0;
-let seconds = 0;
+import { gameTimer, removeTimer } from './components/timer/timer';
 
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
@@ -312,36 +308,14 @@ emailField.addEventListener('input', () => {
   validate();
 });
 
-// TIMER
-
-const timer = document.createElement('div');
-
-const gameTimer = () => {
-  time = setInterval((): void => {
-    appElement.appendChild(timer);
-
-    seconds++;
-    if (seconds === 60) {
-      minutes++;
-      seconds = 0;
-    }
-    timer.innerHTML = `<span class='timer'>${minutes} mins ${seconds} secs</span>`;
-  }, 1000);
-};
-
-const stopTime = (): void => {
-  clearInterval(time);
-  minutes = 0;
-  seconds = 0;
-};
-
 function startGame() {
+  gameTimer();
+
   if (startBtn.innerHTML === 'RESTART') {
     const cardsField = document.querySelector('.cards-field');
     if (!cardsField) throw Error('App root element not found');
     cardsField.remove();
-    stopTime();
-    timer.remove();
+    removeTimer();
   }
 
   navWrapper.innerHTML = '';
@@ -350,12 +324,6 @@ function startGame() {
   new App(appElement).start();
 
   startBtn.innerHTML = 'RESTART';
-
-  // startBtn.removeEventListener('click', startGame);
-
-  gameTimer();
 }
 
 startBtn.addEventListener('click', startGame);
-
-export { stopTime };
