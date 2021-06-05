@@ -3,6 +3,7 @@ import { BaseComponent } from '../base-component';
 import { Card } from '../card/card';
 import { CardsField } from '../game-field/cards-field';
 import { addWinModalMarkup } from '../endGame/endGame';
+import { stopTime } from '../timer/timer';
 
 const FLIP_DELAY = 500;
 
@@ -56,6 +57,7 @@ export class Game extends BaseComponent {
 
     if (isCardsOpen) {
       addWinModalMarkup();
+      stopTime();
     }
   }
 }

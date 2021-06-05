@@ -294,6 +294,8 @@ function startGame() {
   startBtn.innerHTML = 'RESTART';
 }
 
+startBtn.addEventListener('click', startGame);
+
 // ROUTING
 
 const controller = (hash: string) => {
@@ -320,5 +322,3 @@ const hendleHash = () => {
 };
 
 window.addEventListener('hashchange', hendleHash);
-
-startBtn.addEventListener('click', startGame);

@@ -23,6 +23,7 @@ const gameTimer = (): void => {
 
 const stopTime = (): void => {
   clearInterval(time);
+
   minutes = 0;
   seconds = 0;
 };
@@ -32,4 +33,4 @@ const removeTimer = (): void => {
   timer.remove();
 };
 
-export { gameTimer, removeTimer };
+export { gameTimer, removeTimer, stopTime };
