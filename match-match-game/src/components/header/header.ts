@@ -8,14 +8,14 @@ const headerMarkupTemplate = (): string =>
           <p class="logo-down">Match</p>
         </div>
         <ul class="info">
-          <li class="item">About</li>
-          <li class="item">Score</li>
-          <li class="item">Setting</li>
+          <li class="item" id="about">About</li>
+          <li class="item" id="score">Score</li>
+          <li class="item" id="settings">Settings</li>
         </ul>
         <button class="btn reg-btn">register new player</button>
       </div>
     </header>
-    <button class="about start-btn">start game</button>
+    <button class="btn start-btn">start game</button>
 `;
 
 export { headerMarkupTemplate };

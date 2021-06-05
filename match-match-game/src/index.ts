@@ -13,9 +13,9 @@ appElement.insertAdjacentHTML('afterbegin', headerMarkupTemplate());
 appElement.insertAdjacentHTML('beforeend', createFormMarkup());
 formValidate();
 
-const scoreBtn = document.querySelector('.score');
-const aboutBtn = document.querySelector('.about');
-const settingsBtn = document.querySelector('.setting');
+const scoreBtn = document.getElementById('score');
+const aboutBtn = document.getElementById('about');
+const settingsBtn = document.getElementById('settings');
 const startBtn = document.querySelector('.start-btn');
 
 if (!scoreBtn) throw Error('Element not found');
