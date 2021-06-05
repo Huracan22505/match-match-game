@@ -1,61 +1,24 @@
 import './style.scss';
 import { App } from './app';
+import { headerMarkupTemplate } from './components/header/header';
 import { gameTimer, removeTimer } from './components/timer/timer';
 
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
-const header = document.createElement('header');
-header.classList.add('header');
-document.body.append(header);
+appElement.insertAdjacentHTML('afterbegin', headerMarkupTemplate());
 
-const divWrapper = document.createElement('div');
-divWrapper.classList.add('wrapper');
-header.append(divWrapper);
+const scoreBtn = document.querySelector('.score');
+const aboutBtn = document.querySelector('.about');
+const settingsBtn = document.querySelector('.setting');
+const startBtn = document.querySelector('.start-btn');
+const registrationBtn = document.querySelector('.reg-btn');
 
-const divLogo = document.createElement('div');
-divLogo.classList.add('logo');
-divWrapper.append(divLogo);
-
-const pLogoUp = document.createElement('p');
-pLogoUp.innerHTML = 'Match';
-pLogoUp.classList.add('logo-up');
-divLogo.append(pLogoUp);
-
-const pLogoDown = document.createElement('p');
-pLogoDown.innerHTML = 'Match';
-pLogoDown.classList.add('logo-down');
-divLogo.append(pLogoDown);
-
-const divInfo = document.createElement('div');
-divInfo.classList.add('info');
-divWrapper.append(divInfo);
-
-const divAbout = document.createElement('div');
-divAbout.innerHTML = 'About';
-divAbout.classList.add('about');
-
-const divScore = document.createElement('div');
-divScore.innerHTML = 'Score';
-divScore.classList.add('score');
-
-const divSetting = document.createElement('div');
-divSetting.innerHTML = 'Setting';
-divSetting.classList.add('setting');
-
-divInfo.append(divAbout);
-divInfo.append(divScore);
-divInfo.append(divSetting);
-
-const registrationBtn = document.createElement('button');
-registrationBtn.innerHTML = 'register new player';
-registrationBtn.classList.add('btn');
-divWrapper.append(registrationBtn);
-
-const startBtn = document.createElement('button');
-startBtn.classList.add('about');
-startBtn.innerHTML = 'start game';
-appElement.append(startBtn);
+if (!registrationBtn) throw Error('Element not found');
+if (!scoreBtn) throw Error('Element not found');
+if (!aboutBtn) throw Error('Element not found');
+if (!settingsBtn) throw Error('Element not found');
+if (!startBtn) throw Error('Element not found');
 
 // BACKDROP
 
@@ -166,9 +129,10 @@ function settingsRender(): void {
   navWrapper.innerHTML = '';
   navWrapper.insertAdjacentHTML('beforeend', createSettingsMarkup());
 }
-divScore.addEventListener('click', scoreRender);
-divAbout.addEventListener('click', aboutRender);
-divSetting.addEventListener('click', settingsRender);
+
+aboutBtn.addEventListener('click', aboutRender);
+scoreBtn.addEventListener('click', scoreRender);
+settingsBtn.addEventListener('click', settingsRender);
 
 // REGISTRATION FORM
 
@@ -311,6 +275,7 @@ emailField.addEventListener('input', () => {
 function startGame() {
   gameTimer();
 
+  if (!startBtn) throw Error('Element not found');
   if (startBtn.innerHTML === 'RESTART') {
     const cardsField = document.querySelector('.cards-field');
     if (!cardsField) throw Error('App root element not found');

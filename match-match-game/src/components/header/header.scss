@@ -1,0 +1,136 @@
+.header {
+  background: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  width: 1440px;
+  height: 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin-right: 152px;
+}
+
+.logo-up,
+.logo-down {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.logo-up {
+  color: white;
+  /* background-color: #3EC4DB; */
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-down {
+  color: #125f6f;
+  /* background-color: #3EC4DB; */
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 676px;
+}
+
+.about {
+  display: inline-block;
+  padding: 10px 16px;
+
+  background: #f2f9fe;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
+    0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  border: none;
+
+  text-transform: uppercase;
+  color: #2196f3;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  cursor: pointer;
+}
+
+.score {
+  padding: 10px 16px;
+
+  background: #f2f9fe;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
+    0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  border: none;
+
+  text-transform: uppercase;
+  color: #2196f3;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  cursor: pointer;
+}
+.setting {
+  padding: 10px 16px;
+
+  background: #f2f9fe;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
+    0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  border: none;
+
+  text-transform: uppercase;
+  color: #2196f3;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  cursor: pointer;
+}
+.btn {
+  padding: 10px 16px;
+
+  background: #f2f9fe;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
+    0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  border: none;
+
+  text-transform: uppercase;
+  color: #2196f3;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  cursor: pointer;
+}
+.header-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
