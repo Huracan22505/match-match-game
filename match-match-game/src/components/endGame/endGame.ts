@@ -1,3 +1,5 @@
+import './endGame.scss';
+
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
