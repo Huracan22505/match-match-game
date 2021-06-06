@@ -6,6 +6,7 @@ import { addWinModalMarkup } from '../endGame/endGame';
 import { stopTime } from '../timer/timer';
 
 const FLIP_DELAY = 700;
+let mistakes = 0;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
@@ -44,14 +45,19 @@ export class Game extends BaseComponent {
       this.isAnimation = false;
       return;
     }
+
     if (this.activeCard.image !== card.image) {
       this.activeCard.element.classList.add('mistake-true');
       card.element.classList.add('mistake-true');
+
       await delay(FLIP_DELAY);
+
       this.activeCard.element.classList.remove('mistake-true');
       card.element.classList.remove('mistake-true');
 
       await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
+
+      mistakes += 1;
     } else {
       this.activeCard.element.classList.add('mistake-false');
       card.element.classList.add('mistake-false');
@@ -62,10 +68,24 @@ export class Game extends BaseComponent {
     const isCardsOpen: boolean = this.cardsField.cards.every(
       el => el.isFlipped === false,
     );
+    const matches = 4;
+    const timer = document.querySelector('.timer');
+    if (!timer?.textContent) throw Error('App root element not found');
+
+    const timerValue = Number(timer.textContent.replace('secs', ''));
+
+    const score = (matches - mistakes) * 100 - timerValue * 10;
 
     if (isCardsOpen) {
-      addWinModalMarkup();
+      addWinModalMarkup(timerValue, score);
       stopTime();
+      mistakes = 0;
+
+      if (score < 0) {
+        localStorage.setItem('score', '0');
+      } else {
+        localStorage.setItem('score', score.toString());
+      }
     }
   }
 }

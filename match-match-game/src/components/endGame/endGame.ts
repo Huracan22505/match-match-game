@@ -4,17 +4,18 @@ import './endGame.scss';
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
-const createMarkup = (): string => `
+const createMarkup = (timerValue: string, score: number): string => `
 <section class="win-game-modal">
       <div id="modal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <h2>Congratulations!</h2>
-          <p>You successfully found all matches</p>
+          <p>You successfully found all matches for ${timerValue} secs</p>
+          <p>Your score - ${score}</p>
           <img
             class="modal-img"
             src="https://image.freepik.com/free-vector/you-win-sign-in-pop-art-style_175838-498.jpg"
-            alt="Vault boy giving the thumbs up from the game fall out"
+            alt="win picture"
           />
           <button type="button" class="accept-btn">Ok</button>
         </div>
@@ -53,8 +54,11 @@ const displayModal = (): void => {
   });
 };
 
-const addWinModalMarkup = (): void => {
-  appElement.insertAdjacentHTML('beforeend', createMarkup());
+const addWinModalMarkup = (timerValue: number, score: number): void => {
+  appElement.insertAdjacentHTML(
+    'beforeend',
+    createMarkup(timerValue.toString(), score),
+  );
   displayModal();
 };
 

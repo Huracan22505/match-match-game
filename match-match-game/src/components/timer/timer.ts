@@ -1,7 +1,6 @@
 import './timer.scss';
 
 let time: NodeJS.Timeout;
-let minutes = 0;
 let seconds = 0;
 
 const timer = document.createElement('div');
@@ -13,18 +12,13 @@ const gameTimer = (): void => {
     appElement.appendChild(timer);
 
     seconds += 1;
-    if (seconds === 60) {
-      minutes += 1;
-      seconds = 0;
-    }
-    timer.innerHTML = `<span class='timer'>${minutes} mins ${seconds} secs</span>`;
+    timer.innerHTML = `<span class='timer'>${seconds} secs</span>`;
   }, 1000);
 };
 
 const stopTime = (): void => {
   clearInterval(time);
 
-  minutes = 0;
   seconds = 0;
 };
 
