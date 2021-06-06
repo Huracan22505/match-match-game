@@ -5,7 +5,7 @@ import { CardsField } from '../game-field/cards-field';
 import { addWinModalMarkup } from '../endGame/endGame';
 import { stopTime } from '../timer/timer';
 
-const FLIP_DELAY = 500;
+const FLIP_DELAY = 700;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
@@ -45,8 +45,16 @@ export class Game extends BaseComponent {
       return;
     }
     if (this.activeCard.image !== card.image) {
+      this.activeCard.element.classList.add('mistake-true');
+      card.element.classList.add('mistake-true');
       await delay(FLIP_DELAY);
+      this.activeCard.element.classList.remove('mistake-true');
+      card.element.classList.remove('mistake-true');
+
       await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
+    } else {
+      this.activeCard.element.classList.add('mistake-false');
+      card.element.classList.add('mistake-false');
     }
     this.activeCard = undefined;
     this.isAnimation = false;
