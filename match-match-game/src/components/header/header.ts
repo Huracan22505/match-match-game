@@ -12,7 +12,6 @@ const headerMarkupTemplate = (): string =>
           <li class="item" id="score">Score</li>
           <li class="item" id="settings">Settings</li>
         </ul>
-        <button class="btn reg-btn">register new player</button>
       </div>
     </header>
     <button class="btn start-btn">start game</button>
