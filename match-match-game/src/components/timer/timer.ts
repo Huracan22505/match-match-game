@@ -1,26 +1,27 @@
 import './timer.scss';
 
 let time: NodeJS.Timeout;
-let seconds = 0;
+let seconds = -3;
 
 const timer = document.createElement('div');
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App element not found');
 
-const gameTimer = (): NodeJS.Timeout =>
-  setTimeout((): void => {
-    time = setInterval((): void => {
+const gameTimer = (): void => {
+  time = setInterval((): void => {
+    seconds += 1;
+    if (seconds === 1) {
       appElement.appendChild(timer);
+    }
 
-      seconds += 1;
-      timer.innerHTML = `<span class='timer'>${seconds} secs</span>`;
-    }, 1000);
-  }, 3000);
+    timer.innerHTML = `<span class='timer'>${seconds} secs</span>`;
+  }, 1000);
+};
 
 const stopTime = (): void => {
   clearInterval(time);
 
-  seconds = 0;
+  seconds = -3;
 };
 
 const removeTimer = (): void => {
@@ -28,4 +29,4 @@ const removeTimer = (): void => {
   timer.remove();
 };
 
-export { gameTimer, removeTimer };
+export { gameTimer, removeTimer, stopTime };
