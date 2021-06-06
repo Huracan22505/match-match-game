@@ -3,15 +3,14 @@ import { App } from './app';
 import { headerMarkupTemplate } from './components/header/header';
 import { gameTimer, removeTimer } from './components/timer/timer';
 import { createBackdropMarkup } from './components/backdrop/backdrop';
-import { createFormMarkup, formValidate } from './components/regForm/regForm';
 
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
 appElement.insertAdjacentHTML('beforeend', createBackdropMarkup());
 appElement.insertAdjacentHTML('afterbegin', headerMarkupTemplate());
-appElement.insertAdjacentHTML('beforeend', createFormMarkup());
-formValidate();
+// appElement.insertAdjacentHTML('beforeend', createFormMarkup());
+// formValidate();
 
 const scoreBtn = document.getElementById('score');
 const aboutBtn = document.getElementById('about');
@@ -179,7 +178,3 @@ const hendleHash = () => {
 };
 
 window.addEventListener('hashchange', hendleHash);
-
-const openRequest = indexedDB.open('Huracan22505', 1);
-
-console.log(openRequest);

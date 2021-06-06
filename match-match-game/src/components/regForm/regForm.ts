@@ -49,9 +49,6 @@ function createFormMarkup(): string {
 }
 
 const formValidate = (): void => {
-  const registrationBtn = document.querySelector('.reg-btn');
-  if (!registrationBtn) throw Error('Element not found');
-
   const coverElem = document.getElementById('cover');
   if (!coverElem) throw Error('App root element not found');
 
@@ -70,6 +67,8 @@ const formValidate = (): void => {
   const emailField = <HTMLInputElement>document.getElementById('email');
   if (!emailField) throw Error('App root element not found');
 
+  formElem.classList.remove('hidden');
+
   const validate = () => {
     if (nameField.validity.valid && emailField.validity.valid) {
       sendButton.classList.remove('invalid');
@@ -77,12 +76,6 @@ const formValidate = (): void => {
       sendButton.classList.add('invalid');
     }
   };
-
-  registrationBtn.addEventListener('click', () => {
-    document.body.classList.add('notScrollable');
-    coverElem.classList.remove('hidden');
-    formElem.classList.remove('hidden');
-  });
 
   coverElem.addEventListener('click', () => {
     document.body.classList.remove('notScrollable');
@@ -139,4 +132,12 @@ const formValidate = (): void => {
   });
 };
 
-export { createFormMarkup, formValidate };
+const addRegFormMarkup = (): void => {
+  const appElement = document.getElementById('app');
+  if (!appElement) throw Error('App root element not found');
+
+  appElement.insertAdjacentHTML('beforeend', createFormMarkup());
+  formValidate();
+};
+
+export { addRegFormMarkup };
