@@ -1,9 +1,10 @@
 .card-container {
-  margin: 1%;
-  flex: 1 0 20%;
+  width: 150px;
+  margin: 15px;
+  // flex: 1 0 20%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  // justify-content: space-around;
   perspective: 25rem;
   cursor: pointer;
 
@@ -19,7 +20,7 @@
 
 .card {
   position: relative;
-  width: 5.3rem;
+  width: 100%;
   height: 10rem;
   cursor: pointer;
   transform-style: preserve-3d;
