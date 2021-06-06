@@ -15,7 +15,7 @@ const gameTimer = (): NodeJS.Timeout =>
       seconds += 1;
       timer.innerHTML = `<span class='timer'>${seconds} secs</span>`;
     }, 1000);
-  }, 2000);
+  }, 3000);
 
 const stopTime = (): void => {
   clearInterval(time);
