@@ -11,7 +11,7 @@ const createMarkup = (timerValue: string, score: number): string => `
           <span class="close">&times;</span>
           <h2>Congratulations!</h2>
           <p>You successfully found all matches for ${timerValue} secs</p>
-          <p>Your score - ${score}</p>
+          <p>Your score: ${score}</p>
           <img
             class="modal-img"
             src="https://image.freepik.com/free-vector/you-win-sign-in-pop-art-style_175838-498.jpg"
