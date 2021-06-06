@@ -77,7 +77,7 @@ export class Game extends BaseComponent {
     const score = (matches - mistakes) * 100 - timerValue * 10;
 
     if (isCardsOpen) {
-      addWinModalMarkup(timerValue, score > 0 ? score : 0);
+      addWinModalMarkup(timerValue, score);
       stopTime();
       mistakes = 0;
 
