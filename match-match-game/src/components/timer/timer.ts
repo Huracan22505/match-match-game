@@ -7,14 +7,15 @@ const timer = document.createElement('div');
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App element not found');
 
-const gameTimer = (): void => {
-  time = setInterval((): void => {
-    appElement.appendChild(timer);
+const gameTimer = (): NodeJS.Timeout =>
+  setTimeout((): void => {
+    time = setInterval((): void => {
+      appElement.appendChild(timer);
 
-    seconds += 1;
-    timer.innerHTML = `<span class='timer'>${seconds} secs</span>`;
-  }, 1000);
-};
+      seconds += 1;
+      timer.innerHTML = `<span class='timer'>${seconds} secs</span>`;
+    }, 1000);
+  }, 2000);
 
 const stopTime = (): void => {
   clearInterval(time);
@@ -27,4 +28,4 @@ const removeTimer = (): void => {
   timer.remove();
 };
 
-export { gameTimer, removeTimer, stopTime };
+export { gameTimer, removeTimer };

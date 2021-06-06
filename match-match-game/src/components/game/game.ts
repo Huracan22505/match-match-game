@@ -3,7 +3,7 @@ import { BaseComponent } from '../base-component';
 import { Card } from '../card/card';
 import { CardsField } from '../game-field/cards-field';
 import { addWinModalMarkup } from '../endGame/endGame';
-import { stopTime } from '../timer/timer';
+import { removeTimer } from '../timer/timer';
 
 const FLIP_DELAY = 700;
 let mistakes = 0;
@@ -77,8 +77,8 @@ export class Game extends BaseComponent {
     const score = (matches - mistakes) * 100 - timerValue * 10;
 
     if (isCardsOpen) {
-      addWinModalMarkup(timerValue, score);
-      stopTime();
+      addWinModalMarkup(timerValue, score > 0 ? score : 0);
+      removeTimer();
       mistakes = 0;
 
       if (score < 0) {

@@ -9,6 +9,8 @@ if (!appElement) throw Error('App root element not found');
 
 appElement.insertAdjacentHTML('beforeend', createBackdropMarkup());
 appElement.insertAdjacentHTML('afterbegin', headerMarkupTemplate());
+// appElement.insertAdjacentHTML('beforeend', createFormMarkup());
+// formValidate();
 
 const scoreBtn = document.getElementById('score');
 const aboutBtn = document.getElementById('about');
@@ -130,14 +132,14 @@ settingsBtn.addEventListener('click', settingsRender);
 // START GAME
 
 function startGame() {
-  gameTimer();
-
   if (!startBtn) throw Error('Element not found');
   if (startBtn.innerHTML === 'RESTART') {
     const cardsField = document.querySelector('.cards-field');
     if (!cardsField) throw Error('App root element not found');
     cardsField.remove();
     removeTimer();
+    gameTimer();
+  } else {
     gameTimer();
   }
 
