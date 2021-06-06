@@ -9,8 +9,6 @@ if (!appElement) throw Error('App root element not found');
 
 appElement.insertAdjacentHTML('beforeend', createBackdropMarkup());
 appElement.insertAdjacentHTML('afterbegin', headerMarkupTemplate());
-// appElement.insertAdjacentHTML('beforeend', createFormMarkup());
-// formValidate();
 
 const scoreBtn = document.getElementById('score');
 const aboutBtn = document.getElementById('about');

@@ -29,4 +29,4 @@ const removeTimer = (): void => {
   timer.remove();
 };
 
-export { gameTimer, removeTimer, stopTime };
+export { gameTimer, removeTimer };
