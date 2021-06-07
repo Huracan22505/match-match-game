@@ -4,10 +4,10 @@ const headerMarkupTemplate = (): string =>
   `    <header class="header">
       <h1 class="hidden">Match Match Game</h1>
       <div class="wrapper">
-        <div class="logo">
-          <p class="logo-up">Match</p>
+         <a href="#about" class="logo" >
+         <p class="logo-up">Match</p>
           <p class="logo-down">Match</p>
-        </div>
+          </a>
         <ul class="info">
           <li class="item" id="about">About</li>
           <li class="item" id="score">Score</li>
