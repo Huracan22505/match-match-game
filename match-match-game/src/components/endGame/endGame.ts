@@ -35,6 +35,7 @@ const displayModal = (): void => {
   if (!modal) throw Error('App root element not found');
 
   modal.style.display = 'block';
+  document.body.classList.add('notScrollable');
 
   modalClose.addEventListener('click', () => {
     addRegFormMarkup();
