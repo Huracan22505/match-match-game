@@ -2,6 +2,7 @@ import './header.scss';
 
 const headerMarkupTemplate = (): string =>
   `    <header class="header">
+      <h1 class="hidden">Match Match Game</h1>
       <div class="wrapper">
         <div class="logo">
           <p class="logo-up">Match</p>
