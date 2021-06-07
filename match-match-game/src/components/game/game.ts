@@ -70,7 +70,7 @@ export class Game extends BaseComponent {
     const isCardsOpen: boolean = this.cardsField.cards.every(
       el => el.isFlipped === false,
     );
-    const matches = 4;
+    const matches = 6;
 
     if (isCardsOpen) {
       const timer = document.querySelector('.timer');
