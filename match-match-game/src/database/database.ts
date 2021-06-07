@@ -21,7 +21,7 @@ const getFormData = () => {
   return formData;
 };
 
-const getData = () =>
+const getData = (): Promise<unknown> =>
   new Promise(resolve => {
     let tx: IDBTransaction | null = null;
     tx = db.transaction('users', 'readonly');

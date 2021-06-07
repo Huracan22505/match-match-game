@@ -52,7 +52,6 @@ function createAboutMarkup(): string {
     </section>
 `;
 }
-navWrapper.insertAdjacentHTML('beforeend', createAboutMarkup());
 
 function createScoreMarkup(data: any[]): string {
   const sortedData = data.sort((a, b) => b.score - a.score);
@@ -218,3 +217,4 @@ startBtn.addEventListener('click', gameRender);
 
 // DATABASE
 createDataBase('Huracan22505');
+setTimeout(hendleHash, 75);
