@@ -2,10 +2,6 @@
 @import './components/score/score.scss';
 @import './components/settingsPage/settingsPage.scss';
 
-html {
-  font-size: 20px;
-}
-
 body {
   font-family: Roboto;
   font-style: normal;
@@ -17,6 +13,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  overflow-x: hidden;
 }
 
 .notScrollable {

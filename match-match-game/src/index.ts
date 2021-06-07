@@ -1,9 +1,9 @@
-import './style.scss';
 import { App } from './app';
 import { headerMarkupTemplate } from './components/header/header';
 import { gameTimer, removeTimer } from './components/timer/timer';
 import { createBackdropMarkup } from './components/backdrop/backdrop';
 import { createDataBase, usersData } from './database/database';
+import './style.scss';
 
 // DATABASE
 createDataBase('Huracan22505');
