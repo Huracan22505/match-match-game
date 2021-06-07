@@ -5,6 +5,9 @@ import { gameTimer, removeTimer } from './components/timer/timer';
 import { createBackdropMarkup } from './components/backdrop/backdrop';
 import { createDataBase, usersData } from './database/database';
 
+// DATABASE
+createDataBase('Huracan22505');
+
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
@@ -215,6 +218,4 @@ const gameRender = () => {
 window.addEventListener('hashchange', hendleHash);
 startBtn.addEventListener('click', gameRender);
 
-// DATABASE
-createDataBase('Huracan22505');
-setTimeout(hendleHash, 75);
+hendleHash();
