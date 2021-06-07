@@ -7,6 +7,8 @@ import { removeTimer } from '../timer/timer';
 
 const FLIP_DELAY = 700;
 let mistakes = 0;
+let timerValue: number;
+let score: number;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
@@ -69,14 +71,13 @@ export class Game extends BaseComponent {
       el => el.isFlipped === false,
     );
     const matches = 4;
-    const timer = document.querySelector('.timer');
-    if (!timer?.textContent) throw Error('App root element not found');
-
-    const timerValue = Number(timer.textContent.replace('secs', ''));
-
-    const score = (matches - mistakes) * 100 - timerValue * 10;
 
     if (isCardsOpen) {
+      const timer = document.querySelector('.timer');
+      if (!timer?.textContent) throw Error('App root element not found');
+      timerValue = Number(timer.textContent.replace('secs', ''));
+      score = (matches - mistakes) * 100 - timerValue * 10;
+
       addWinModalMarkup(timerValue, score > 0 ? score : 0);
       removeTimer();
       mistakes = 0;
