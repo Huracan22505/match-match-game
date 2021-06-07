@@ -1,4 +1,5 @@
-import { write } from '../database/database';
+/* eslint-disable no-return-assign */
+import { postData } from '../../database/database';
 import './regForm.scss';
 
 const appElement = document.getElementById('app');
@@ -93,12 +94,15 @@ const formValidate = (): void => {
   const onSendBtnClick = (e: { preventDefault: () => void }) => {
     if (sendButton.classList.contains('invalid')) return;
     e.preventDefault();
-    write();
+
+    postData();
 
     document.body.classList.remove('notScrollable');
     coverElem.classList.add('hidden');
     formElem.classList.add('hidden');
-    window.location.hash = 'score';
+
+    const delay = () => (window.location.hash = 'score');
+    setTimeout(delay, 100);
   };
 
   sendButton.addEventListener('click', onSendBtnClick);
