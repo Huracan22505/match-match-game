@@ -9,7 +9,7 @@ const headerMarkupTemplate = (): string =>
           <p class="logo-down">Match</p>
           </a>
         <ul class="info">
-          <li class="item" id="about">About</li>
+          <li class="item current" id="about">About</li>
           <li class="item" id="score">Score</li>
           <li class="item" id="settings">Settings</li>
         </ul>

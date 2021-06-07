@@ -169,15 +169,31 @@ function startGame() {
 const controller = (hash: string) => {
   switch (hash) {
     case 'about':
+      aboutBtn.classList.add('current');
+      scoreBtn.classList.remove('current');
+      settingsBtn.classList.remove('current');
+
       aboutRender();
       break;
     case 'score':
+      scoreBtn.classList.add('current');
+      aboutBtn.classList.remove('current');
+      settingsBtn.classList.remove('current');
+
       scoreRender();
       break;
     case 'settings':
+      settingsBtn.classList.add('current');
+      aboutBtn.classList.remove('current');
+      scoreBtn.classList.remove('current');
+
       settingsRender();
       break;
     case 'game':
+      aboutBtn.classList.remove('current');
+      scoreBtn.classList.remove('current');
+      settingsBtn.classList.remove('current');
+
       startGame();
       break;
 
