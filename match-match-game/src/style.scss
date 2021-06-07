@@ -19,6 +19,10 @@ body {
   flex-direction: column;
 }
 
+.notScrollable {
+  overflow: hidden;
+}
+
 .hidden {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);

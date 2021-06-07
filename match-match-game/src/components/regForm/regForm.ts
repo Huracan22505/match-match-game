@@ -1,4 +1,11 @@
+import { write } from '../database/database';
 import './regForm.scss';
+
+const appElement = document.getElementById('app');
+if (!appElement) throw Error('App root element not found');
+
+const formWrapper = document.createElement('div');
+appElement.append(formWrapper);
 
 function createFormMarkup(): string {
   return `<div class="form-feedback hidden" id="form-feedback">
@@ -86,10 +93,12 @@ const formValidate = (): void => {
   const onSendBtnClick = (e: { preventDefault: () => void }) => {
     if (sendButton.classList.contains('invalid')) return;
     e.preventDefault();
+    write();
 
     document.body.classList.remove('notScrollable');
     coverElem.classList.add('hidden');
     formElem.classList.add('hidden');
+    window.location.hash = 'score';
   };
 
   sendButton.addEventListener('click', onSendBtnClick);
@@ -133,10 +142,8 @@ const formValidate = (): void => {
 };
 
 const addRegFormMarkup = (): void => {
-  const appElement = document.getElementById('app');
-  if (!appElement) throw Error('App root element not found');
+  formWrapper.innerHTML = createFormMarkup();
 
-  appElement.insertAdjacentHTML('beforeend', createFormMarkup());
   formValidate();
 };
 

@@ -4,6 +4,9 @@ import './endGame.scss';
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
 
+const formWrapper = document.createElement('div');
+appElement.append(formWrapper);
+
 const createMarkup = (timerValue: string, score: number): string => `
 <section class="win-game-modal">
       <div id="modal" class="modal">
@@ -55,10 +58,7 @@ const displayModal = (): void => {
 };
 
 const addWinModalMarkup = (timerValue: number, score: number): void => {
-  appElement.insertAdjacentHTML(
-    'beforeend',
-    createMarkup(timerValue.toString(), score),
-  );
+  formWrapper.innerHTML = createMarkup(timerValue.toString(), score);
   displayModal();
 };
 
