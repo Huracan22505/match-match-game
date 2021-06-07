@@ -9,62 +9,104 @@ const formWrapper = document.createElement('div');
 appElement.append(formWrapper);
 
 function createFormMarkup(): string {
-  return `<div class="form-feedback hidden" id="form-feedback">
-      <form action="">
-        <label class="label" for="name"></label>
-        <input
-          class="input"
-          type="text"
-          id="name"
-          required
-          title="- Имя не может быть пустым.
+  return `<div class="reg-modal hidden" id="reg-form">
+      <p class="modal__title">Registr New Player</p>
+      <form action="submit" class="modal__form">
+        <div class="form__wrapper">
+          <div class="modal__form__input">
+            <label>First name</label
+            >
+            <input
+            class="name"
+            id="name"
+            type="name"
+            required
+            title="- Имя не может быть пустым.
                  - Имя не может состоять из цифр.
                  - Имя не может содержать служебные символы"
           pattern="[a-zA-Zа-яА-Я]+"
-          maxlength="30"
-          placeholder="First name"
-        />
-        <br />
-
-        <label class="label" for="lastName"></label>
-        <input
-          class="input"
-          type="text"
-          id="lastName"
-          required
-          title="- Имя не может быть пустым.
+          maxlength="30"/>
+            <div class="checkbox name-ch">
+              <img
+                src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="modal__form__input">
+            <label>Last name</label
+            ><input
+            class="surname"
+            id="lastName"
+            type="text"
+            required
+            title="- Имя не может быть пустым.
                  - Имя не может состоять из цифр.
                  - Имя не может содержать служебные символы"
-          pattern="[a-zA-Zа-яА-Я]+"
-          maxlength="30"
-          placeholder="Last name"
+            pattern="[a-zA-Zа-яА-Я]+"
+          maxlength="30" />
+            <div class="checkbox surname-ch">
+              <img
+                src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="modal__form__input">
+            <label>E-mail</label
+            ><input
+            class="email"
+            id="email"
+            type="email"
+            required
+            pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]{2,10}[.]+[a-zA-Z0-9]+" />
+            <div class="checkbox email-ch">
+              <img
+                src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <img
+          class="form__modal__img"
+          src="https://clip2net.com/clip/m231034/174d4-clip-6kb.png?nocache=1"
+          alt=""
+          width="198"
+          height="198"
         />
-        <br />
-
-        <label class="label" for="email"></label>
-        <input
-          class="input"
-          type="email"
-          id="email"
-          maxlength="30"
-          required
-          placeholder="E-mail"
-        />
-        <br />
-        <button class="button invalid" id="send" type="submit">Add user</button>
+        <div class="modal__form__buttons">
+          <button
+            class="form__modal__submitbtn form__modal__btn invalid"
+            id="send"
+            type="submit"
+          >
+            Add user</button
+          ><button
+            class="form__modal__cancelbtn form__modal__btn"
+            id="cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
       </form>
-    </div>`;
+
+`;
 }
 
 const formValidate = (): void => {
   const coverElem = document.getElementById('cover');
   if (!coverElem) throw Error('App root element not found');
 
-  const formElem = document.getElementById('form-feedback');
+  const formElem = document.getElementById('reg-form');
   if (!formElem) throw Error('App root element not found');
 
   const sendButton = document.getElementById('send');
   if (!sendButton) throw Error('App root element not found');
+
+  const cancelButton = document.getElementById('cancel');
+  if (!cancelButton) throw Error('App root element not found');
 
   const nameField = <HTMLInputElement>document.getElementById('name');
   if (!nameField) throw Error('App root element not found');
@@ -105,44 +147,21 @@ const formValidate = (): void => {
     setTimeout(delay, 100);
   };
 
+  const onCancelBtnClick = () => {
+    document.body.classList.remove('notScrollable');
+    coverElem.classList.add('hidden');
+    formElem.classList.add('hidden');
+  };
+
+  cancelButton.addEventListener('click', onCancelBtnClick);
+
   sendButton.addEventListener('click', onSendBtnClick);
 
-  nameField.addEventListener('input', () => {
-    if (!nameField.validity.valid) {
-      nameField.classList.add('form-invalid');
-      nameField.classList.remove('form-valid');
-    } else {
-      nameField.classList.remove('form-invalid');
-      nameField.classList.add('form-valid');
-    }
-    validate();
-  });
+  nameField.addEventListener('input', validate);
 
-  lastNameField.addEventListener('input', () => {
-    if (!lastNameField.validity.valid) {
-      lastNameField.classList.add('form-invalid');
-      lastNameField.classList.remove('form-valid');
-    } else {
-      lastNameField.classList.remove('form-invalid');
-      lastNameField.classList.add('form-valid');
-    }
-    validate();
-  });
+  lastNameField.addEventListener('input', validate);
 
-  emailField.addEventListener('input', () => {
-    if (!emailField.validity.valid) {
-      emailField.classList.add('form-invalid');
-      emailField.classList.remove('form-valid');
-    } else {
-      emailField.classList.remove('form-invalid');
-      emailField.classList.add('form-valid');
-    }
-    validate();
-  });
-
-  emailField.addEventListener('input', () => {
-    validate();
-  });
+  emailField.addEventListener('input', validate);
 };
 
 const addRegFormMarkup = (): void => {
