@@ -1,5 +1,8 @@
 import './header.scss';
 
+const appElement = document.getElementById('app');
+if (!appElement) throw Error('App root element not found');
+
 const headerMarkupTemplate = (): string =>
   `    <header class="header">
       <h1 class="hidden">Match Match Game</h1>
@@ -18,4 +21,8 @@ const headerMarkupTemplate = (): string =>
     <button class="btn start-btn">start game</button>
 `;
 
-export { headerMarkupTemplate };
+const headerRender = (): void => {
+  appElement.insertAdjacentHTML('afterbegin', headerMarkupTemplate());
+};
+
+export { headerRender };
