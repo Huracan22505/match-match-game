@@ -15,9 +15,19 @@ function createScoreMarkup(data: any[]): string {
     ? `<p class="name">There are no records yet. You need to play!</p>`
     : sortedData
       .map(
-        ({ name, lastName, score }): string =>
+        ({ name, lastName, email, score, avatar }): string =>
           `<li class="item list">
-              <p class="name">${name} ${lastName}</p>
+              <div class="name-container" >
+              <img class="img" src="${
+  avatar || 'https://clip2net.com/clip/m231034/174d4-clip-6kb.png?nocache=1'
+}" alt="" width="40px" height="40px" >
+              <div class="email-container" >
+              <p class="name">
+              ${name} ${lastName}
+              </p>
+              <span class="email" >${email}</span>
+              </div>
+              </div>
               <p class="rating">Score: <span class="count">${score}</span></p>
             </li>`,
       )

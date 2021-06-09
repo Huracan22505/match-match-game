@@ -11,7 +11,6 @@
 }
 
 .modal__title {
-  font-family: Roboto;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.5;
@@ -21,7 +20,6 @@
 }
 
 .modal__form {
-  /* margin: 53px 0 91px 21px; */
   margin-top: 53px;
   margin-left: 21px;
   display: flex;
@@ -91,11 +89,15 @@
   background: #2196f3;
   color: #ffffff;
   margin-right: 17px;
+
+  cursor: pointer;
 }
 
 .form__modal__cancelbtn {
   background: #e3f2fd;
   color: #2196f3;
+
+  cursor: pointer;
 }
 
 .form__modal__btn {
@@ -146,4 +148,40 @@
 
 .invalid {
   background: rgb(158, 152, 152);
+}
+
+// AVATAR
+
+.avatar-container {
+  position: relative;
+
+  margin-left: 38px;
+
+  width: 200px;
+  height: 200px;
+
+  .img {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: contain;
+    object-position: center;
+
+    cursor: pointer;
+  }
+
+  .input {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+    cursor: pointer;
+  }
 }

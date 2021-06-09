@@ -1,4 +1,3 @@
-/* eslint-disable no-return-assign */
 import { postData } from '../../database/database';
 import './regForm.scss';
 
@@ -30,6 +29,8 @@ function createFormMarkup(): string {
               <img
                 src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
                 alt=""
+                width="20px"
+                height="20px"
               />
             </div>
           </div>
@@ -49,6 +50,8 @@ function createFormMarkup(): string {
               <img
                 src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
                 alt=""
+                width="20px"
+                height="20px"
               />
             </div>
           </div>
@@ -64,17 +67,16 @@ function createFormMarkup(): string {
               <img
                 src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
                 alt=""
+                width="20px"
+                height="20px"
               />
             </div>
           </div>
         </div>
-        <img
-          class="form__modal__img"
-          src="https://clip2net.com/clip/m231034/174d4-clip-6kb.png?nocache=1"
-          alt=""
-          width="198"
-          height="198"
-        />
+        <div class="avatar-container">
+              <img class="img" id="uploadedImage" src="https://clip2net.com/clip/m231034/174d4-clip-6kb.png?nocache=1">
+              <input class="input" id="avatarUpload" name="upload" type="file">
+            </div>
         <div class="modal__form__buttons">
           <button
             class="form__modal__submitbtn form__modal__btn invalid"
@@ -143,7 +145,9 @@ const formValidate = (): void => {
     coverElem.classList.add('hidden');
     formElem.classList.add('hidden');
 
-    const delay = () => (window.location.hash = 'score');
+    const delay = () => {
+      window.location.hash = 'score';
+    };
     setTimeout(delay, 100);
   };
 
@@ -151,6 +155,8 @@ const formValidate = (): void => {
     document.body.classList.remove('notScrollable');
     coverElem.classList.add('hidden');
     formElem.classList.add('hidden');
+
+    localStorage.removeItem('avatar');
   };
 
   cancelButton.addEventListener('click', onCancelBtnClick);
@@ -162,6 +168,37 @@ const formValidate = (): void => {
   lastNameField.addEventListener('input', validate);
 
   emailField.addEventListener('input', validate);
+
+  // AVATAR
+
+  const uploadAvatarBtn = <HTMLFormElement>(
+    document.getElementById('avatarUpload')
+  );
+  const uploadedImage = <HTMLFormElement>(
+    document.getElementById('uploadedImage')
+  );
+
+  uploadAvatarBtn.addEventListener('change', () => {
+    const file = URL.createObjectURL(uploadAvatarBtn.files[0]);
+    const canvas = document.createElement('canvas');
+
+    const img = new Image();
+    img.setAttribute('crossOrigin', 'anonymous');
+    img.src = file;
+
+    img.onload = (): void => {
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = <CanvasRenderingContext2D>canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+
+      localStorage.setItem('avatar', link.href);
+      uploadedImage.src = link.href;
+    };
+  });
 };
 
 const addRegFormMarkup = (): void => {

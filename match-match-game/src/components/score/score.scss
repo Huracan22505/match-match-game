@@ -30,6 +30,28 @@
     letter-spacing: 0.1px;
     color: #333333;
 
+    .name-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .img {
+      margin-right: 10px;
+
+      border-radius: 50%;
+
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .email {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.4px;
+      color: #333333;
+    }
+
     .rating {
       font-weight: 500;
       font-size: 14px;
@@ -37,6 +59,10 @@
       letter-spacing: 0.15px;
       color: rgba(0, 0, 0, 0.87);
     }
+  }
+
+  .item + .item {
+    margin-top: 10px;
   }
 
   .count {

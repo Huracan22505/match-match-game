@@ -11,12 +11,16 @@ const getFormData = () => {
   if (!nameField) throw Error('App root element not found');
 
   const score: string | null = localStorage.getItem('score');
+  const avatar: string | null = localStorage.getItem('avatar');
   const formData = {
     name: nameField.value,
     lastName: lastNameField.value,
     email: emailField.value,
     score,
+    avatar,
   };
+
+  localStorage.removeItem('avatar');
 
   return formData;
 };
@@ -45,8 +49,8 @@ const addUser = (player: {
   name: string;
   lastName: string;
   email: string;
-  score: unknown;
-  // avatar: string;
+  score: string | null;
+  avatar: string | null;
 }): void => {
   const tx = db.transaction(['users'], 'readwrite');
   const store = tx.objectStore('users');
