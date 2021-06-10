@@ -31,7 +31,7 @@ function createScoreMarkup(data: any[]): string {
               <p class="rating">Score: <span class="count">${score}</span></p>
             </li>`,
       )
-      .filter((v, i, a) => a.indexOf(v) === i)
+      .filter((v, i, a) => a.indexOf(v) === i).slice(0,10)
       .join('')
 }
           </ul>
