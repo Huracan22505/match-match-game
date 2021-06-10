@@ -24,7 +24,7 @@ const routing = (): void => {
 
   function startGame() {
     if (!startBtn) throw Error('Element not found');
-    if (startBtn.innerHTML === 'RESTART') {
+    if (startBtn.innerHTML === 'RESTART GAME') {
       const cardsField = document.querySelector('.cards-field');
       if (!cardsField) throw Error('App root element not found');
       cardsField.remove();
@@ -39,8 +39,23 @@ const routing = (): void => {
     if (!appElement) throw Error('App root element not found');
     new App(appElement).start();
 
-    startBtn.innerHTML = 'RESTART';
+    startBtn.innerHTML = 'RESTART GAME';
   }
+
+  const gameRender = () => {
+    window.location.hash = 'game';
+    startGame();
+
+    const cardsField = document.querySelector('.cards-field');
+    if (!cardsField) throw Error('App root element not found');
+
+    const difficulty = localStorage.getItem('gameDifficulty');
+    if (difficulty === '6x6') {
+      cardsField.setAttribute('style', 'width:1440px;');
+    } else {
+      cardsField.setAttribute('style', 'width:640px;');
+    }
+  };
 
   const controller = (hash: string) => {
     switch (hash) {
@@ -70,7 +85,7 @@ const routing = (): void => {
         scoreBtn.classList.remove('current');
         settingsBtn.classList.remove('current');
 
-        startGame();
+        gameRender();
         break;
 
       default:
@@ -82,11 +97,6 @@ const routing = (): void => {
     const hash = window.location.hash ? window.location.hash.slice(1) : '';
 
     controller(hash);
-  };
-
-  const gameRender = () => {
-    window.location.hash = 'game';
-    startGame();
   };
 
   window.addEventListener('hashchange', hendleHash);

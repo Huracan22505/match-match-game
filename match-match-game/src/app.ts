@@ -12,8 +12,16 @@ export class App {
   async start(): Promise<void> {
     const res = await fetch('./images.json');
     const categories: ImageCategory[] = await res.json();
-    const cat = categories[0];
+
+    const gameCategory = localStorage.getItem('gameCategory');
+    const gameDifficulty = localStorage.getItem('gameDifficulty');
+
+    const cat = categories.filter(
+      ({ category }) => category === gameCategory,
+    )[0];
     const { images } = cat;
-    this.game.newGame(images);
+
+    if (gameDifficulty === '4x4') this.game.newGame(images.slice(0, 8));
+    if (gameDifficulty === '6x6') this.game.newGame(images);
   }
 }
