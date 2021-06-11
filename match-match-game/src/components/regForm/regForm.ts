@@ -148,7 +148,7 @@ const formValidate = (): void => {
     const delay = () => {
       window.location.hash = 'score';
     };
-    setTimeout(delay, 100);
+    setTimeout(delay, 150);
   };
 
   const onCancelBtnClick = () => {

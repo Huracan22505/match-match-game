@@ -1,8 +1,10 @@
+import { createBackdropMarkup } from '../backdrop/backdrop';
 import { addRegFormMarkup } from '../regForm/regForm';
 import './endGame.scss';
 
 const appElement = document.getElementById('app');
 if (!appElement) throw Error('App root element not found');
+appElement.insertAdjacentHTML('beforeend', createBackdropMarkup());
 
 const formWrapper = document.createElement('div');
 appElement.append(formWrapper);
