@@ -59,13 +59,6 @@ const routing = (): void => {
 
   const controller = (hash: string) => {
     switch (hash) {
-      case 'about':
-        aboutBtn.classList.add('current');
-        scoreBtn.classList.remove('current');
-        settingsBtn.classList.remove('current');
-
-        aboutRender();
-        break;
       case 'score':
         scoreBtn.classList.add('current');
         aboutBtn.classList.remove('current');
@@ -89,6 +82,11 @@ const routing = (): void => {
         break;
 
       default:
+        aboutBtn.classList.add('current');
+        scoreBtn.classList.remove('current');
+        settingsBtn.classList.remove('current');
+
+        aboutRender();
         break;
     }
   };
