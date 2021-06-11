@@ -10,6 +10,14 @@ let mistakes = 0;
 let timerValue: number;
 let score: number;
 
+let matches: number;
+
+if (localStorage.getItem('gameDifficulty') === '6x6') {
+  matches = 16;
+} else {
+  matches = 8;
+}
+
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
 
@@ -70,7 +78,6 @@ export class Game extends BaseComponent {
     const isCardsOpen: boolean = this.cardsField.cards.every(
       el => el.isFlipped === false,
     );
-    const matches = 6;
 
     if (isCardsOpen) {
       const timer = document.querySelector('.timer');
