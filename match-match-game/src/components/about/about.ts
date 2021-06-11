@@ -8,7 +8,7 @@ const navWrapper: HTMLDivElement = document.createElement('div');
 appElement.append(navWrapper);
 
 function createAboutMarkup(): string {
-  return `    <section class="about-section">
+  return `<section class="about-section">
       <div class="container">
         <h2 class="title">How to play?</h2>
         <div class="about-container">

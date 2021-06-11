@@ -20,7 +20,7 @@ const createMarkup = (timerValue: string, score: number): string => `
             src="https://image.freepik.com/free-vector/you-win-sign-in-pop-art-style_175838-498.jpg"
             alt="win picture"
           />
-          <button type="button" class="accept-btn">Ok</button>
+          <button style="margin-bottom: 15px;" type="button" class="button accept-btn">Ok</button>
         </div>
       </div>
     </section>
