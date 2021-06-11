@@ -3,6 +3,6 @@ export class BaseComponent {
 
   constructor(tag: keyof HTMLElementTagNameMap = 'div', styles: string[] = []) {
     this.element = document.createElement(tag);
-    this.element.classList.add(...styles);
+    if (styles.length > 0) this.element.classList.add(...styles);
   }
 }
