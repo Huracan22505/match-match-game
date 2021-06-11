@@ -1,7 +1,7 @@
 import './timer.scss';
 
 let time: NodeJS.Timeout;
-let seconds = -3;
+let seconds = -10;
 
 const timer = document.createElement('div');
 const appElement = document.getElementById('app');
@@ -21,7 +21,7 @@ const gameTimer = (): void => {
 const stopTime = (): void => {
   clearInterval(time);
 
-  seconds = -3;
+  seconds = -10;
 };
 
 const removeTimer = (): void => {
