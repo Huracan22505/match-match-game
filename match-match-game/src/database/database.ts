@@ -1,14 +1,10 @@
 const usersData: any[] = [];
-let db!: IDBDatabase;
+let db: IDBDatabase;
 
 const getFormData = () => {
   const nameField = <HTMLInputElement>document.getElementById('name');
   const lastNameField = <HTMLInputElement>document.getElementById('lastName');
   const emailField = <HTMLInputElement>document.getElementById('email');
-
-  if (!emailField) throw Error('App root element not found');
-  if (!lastNameField) throw Error('App root element not found');
-  if (!nameField) throw Error('App root element not found');
 
   const score: string | null = localStorage.getItem('score');
   const avatar: string | null = localStorage.getItem('avatar');
