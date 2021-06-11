@@ -5,7 +5,9 @@ import { CardsField } from '../game-field/cards-field';
 import { addWinModalMarkup } from '../endGame/endGame';
 import { removeTimer } from '../timer/timer';
 
+// milliseconds
 const FLIP_DELAY = 700;
+
 let mistakes = 0;
 let timerValue: number;
 let score: number;
@@ -41,6 +43,7 @@ export class Game extends BaseComponent {
     cards.forEach(card => {
       card.element.addEventListener('click', () => this.cardHandler(card));
     });
+
     this.cardsField.addCards(cards);
   }
 
