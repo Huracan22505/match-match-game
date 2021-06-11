@@ -5,13 +5,12 @@ let seconds = -10;
 
 const timer = document.createElement('div');
 const appElement = document.getElementById('app');
-if (!appElement) throw Error('App element not found');
 
 const gameTimer = (): void => {
   time = setInterval((): void => {
     seconds += 1;
     if (seconds === 1) {
-      appElement.appendChild(timer);
+      appElement?.appendChild(timer);
     }
 
     timer.innerHTML = `<span class='timer'>${seconds} secs</span>`;
