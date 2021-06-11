@@ -15,16 +15,26 @@ function createAboutMarkup(): string {
           <ul class="step-list">
             <li class="item list">
               <div class="numbering">1</div>
-              <p class="text">Stay safe</p>
+              <p class="text">Stay safe.</p>
             </li>
             <li class="item list">
               <div class="numbering">2</div>
-              <p class="text">Click "START GAME" button.</p>
+              <p class="text">Configure your game settings.</p>
             </li>
             <li class="item list">
               <div class="numbering">3</div>
+              <p class="text">Click "START GAME" button.</p>
+            </li>
+            <li class="item list">
+              <div class="numbering">4</div>
               <p class="text">
-                Remember card positions and match it.
+                You have 10 seconds to memorize the position of the cards.
+              </p>
+            </li>
+            <li class="item list">
+              <div class="numbering">5</div>
+              <p class="text">
+                Find all matches.
               </p>
             </li>
           </ul>
