@@ -1,4 +1,10 @@
-const usersData: any[] = [];
+const usersData: Array<{
+  name: string;
+  lastName: string;
+  email: string;
+  score: string | null;
+  avatar: string | null;
+}> = [];
 let db: IDBDatabase;
 
 const getFormData = () => {

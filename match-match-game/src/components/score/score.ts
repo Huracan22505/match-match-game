@@ -3,8 +3,16 @@ import { removeTimer } from '../timer/timer';
 import { usersData } from '../../database/database';
 import './score.scss';
 
-function createScoreMarkup(data: any[]): string {
-  const sortedData = data.sort((a, b) => b.score - a.score);
+function createScoreMarkup(
+  data: Array<{
+    name: string;
+    lastName: string;
+    email: string;
+    score: string | null;
+    avatar: string | null;
+  }>,
+): string {
+  const sortedData = data.sort((a, b) => Number(b.score) - Number(a.score));
 
   return `    <section class="score-section">
       <div class="container">
@@ -19,7 +27,8 @@ function createScoreMarkup(data: any[]): string {
           `<li class="item">
               <div class="name-container" >
               <img class="img" src="${
-  avatar || 'https://clip2net.com/clip/m231034/174d4-clip-6kb.png?nocache=1'
+  avatar ||
+                'https://clip2net.com/clip/m231034/174d4-clip-6kb.png?nocache=1'
 }" alt="" width="40px" height="40px" >
               <div class="email-container" >
               <p class="name">
@@ -31,7 +40,8 @@ function createScoreMarkup(data: any[]): string {
               <p class="rating">Score: <span class="count">${score}</span></p>
             </li>`,
       )
-      .filter((v, i, a) => a.indexOf(v) === i).slice(0,10)
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .slice(0, 10)
       .join('')
 }
           </ul>
