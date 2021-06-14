@@ -84,7 +84,7 @@ export class Game extends BaseComponent {
 
     if (isCardsOpen) {
       const timer = document.querySelector('.timer');
-      if (!timer?.textContent) throw Error('App root element not found');
+      if (!timer?.textContent) throw Error('Timer element not found');
       timerValue = Number(timer.textContent.replace('secs', ''));
       score = (matches - mistakes) * 100 - timerValue * 10;
 
