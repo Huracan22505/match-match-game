@@ -1,13 +1,12 @@
-import { createBackdropMarkup } from '../backdrop/backdrop';
+import refs from '../../shared/refs';
+import { backdropMarkup } from '../backdrop/backdrop';
 import { addRegFormMarkup } from '../regForm/regForm';
 import './endGame.scss';
 
-const appElement = document.getElementById('app');
-if (!appElement) throw Error('App root element not found');
-appElement.insertAdjacentHTML('beforeend', createBackdropMarkup());
+refs.appElement?.insertAdjacentHTML('beforeend', backdropMarkup);
 
 const formWrapper = document.createElement('div');
-appElement.append(formWrapper);
+refs.appElement?.append(formWrapper);
 
 const createMarkup = (timerValue: string, score: number): string => `
 <section class="win-game-modal">
@@ -22,7 +21,7 @@ const createMarkup = (timerValue: string, score: number): string => `
             src="https://image.freepik.com/free-vector/you-win-sign-in-pop-art-style_175838-498.jpg"
             alt="win picture"
           />
-          <button style="margin-bottom: 15px;" type="button" class="button accept-btn">Ok</button>
+          <button type="button" class="button accept-btn">Ok</button>
         </div>
       </div>
     </section>
@@ -30,33 +29,33 @@ const createMarkup = (timerValue: string, score: number): string => `
 
 const displayModal = (): void => {
   const modal = document.getElementById('modal');
-  const modalClose = document.getElementsByClassName('close')[0] as HTMLElement;
+  const modalClose = document.querySelector('.close');
   const coverElem = document.getElementById('cover');
   const acceptBtn = document.querySelector('.accept-btn');
-  if (!coverElem) throw Error('App root element not found');
-  if (!modal) throw Error('App root element not found');
+  if (!coverElem) throw Error('coverElem element not found');
+  if (!modal) throw Error('modal element not found');
 
   modal.style.display = 'block';
   document.body.classList.add('notScrollable');
 
-  modalClose.addEventListener('click', () => {
+  const removeEndGameForm = () => {
     addRegFormMarkup();
     coverElem.classList.remove('hidden');
     modal.style.display = 'none';
+  };
+
+  modalClose?.addEventListener('click', () => {
+    removeEndGameForm();
   });
 
   modal.addEventListener('click', event => {
     if (event.target === modal) {
-      addRegFormMarkup();
-      coverElem.classList.remove('hidden');
-      modal.style.display = 'none';
+      removeEndGameForm();
     }
   });
 
   acceptBtn?.addEventListener('click', () => {
-    addRegFormMarkup();
-    coverElem.classList.remove('hidden');
-    modal.style.display = 'none';
+    removeEndGameForm();
   });
 };
 

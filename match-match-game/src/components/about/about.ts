@@ -1,14 +1,11 @@
+import refs from '../../shared/refs';
 import { removeTimer } from '../timer/timer';
 import './about.scss';
 
-const appElement = document.getElementById('app');
-if (!appElement) throw Error('App root element not found');
-
 const navWrapper: HTMLDivElement = document.createElement('div');
-appElement.append(navWrapper);
+refs.appElement?.append(navWrapper);
 
-function createAboutMarkup(): string {
-  return `<section class="about-section">
+const aboutPageMarkup = `<section class="about-section">
       <div class="container">
         <h2 class="title">How to play?</h2>
         <div class="about-container">
@@ -42,11 +39,9 @@ function createAboutMarkup(): string {
       </div>
     </section>
 `;
-}
 
 function aboutRender(): void {
-  navWrapper.innerHTML = '';
-  navWrapper.innerHTML = createAboutMarkup();
+  navWrapper.innerHTML = aboutPageMarkup;
   window.location.hash = 'about';
 
   const cardsField = document.querySelector('.cards-field');

@@ -1,20 +1,19 @@
+import refs from '../../shared/refs';
 import { postData } from '../../database/database';
 import './regForm.scss';
 
-const appElement = document.getElementById('app');
-if (!appElement) throw Error('App root element not found');
-
 const formWrapper = document.createElement('div');
-appElement.append(formWrapper);
+refs.appElement?.append(formWrapper);
 
-function createFormMarkup(): string {
-  return `<div class="reg-modal hidden" id="reg-form">
+const checkboxImage =
+  'https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1';
+
+const regFormMarkup = `<div class="reg-modal hidden" id="reg-form">
       <p class="modal__title">Registr New Player</p>
       <form action="submit" class="modal__form">
         <div class="form__wrapper">
           <div class="modal__form__input">
-            <label>First name</label
-            >
+            <label>First name</label>
             <input
             class="name"
             id="name"
@@ -27,7 +26,7 @@ function createFormMarkup(): string {
           maxlength="30"/>
             <div class="checkbox name-ch">
               <img
-                src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
+                src="${checkboxImage}"
                 alt=""
                 width="20px"
                 height="20px"
@@ -35,8 +34,8 @@ function createFormMarkup(): string {
             </div>
           </div>
           <div class="modal__form__input">
-            <label>Last name</label
-            ><input
+            <label>Last name</label>
+            <input
             class="surname"
             id="lastName"
             type="text"
@@ -48,7 +47,7 @@ function createFormMarkup(): string {
           maxlength="30" />
             <div class="checkbox surname-ch">
               <img
-                src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
+                src="${checkboxImage}"
                 alt=""
                 width="20px"
                 height="20px"
@@ -56,8 +55,8 @@ function createFormMarkup(): string {
             </div>
           </div>
           <div class="modal__form__input">
-            <label>E-mail</label
-            ><input
+            <label>E-mail</label>
+            <input
             class="email"
             id="email"
             type="email"
@@ -65,7 +64,7 @@ function createFormMarkup(): string {
             pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]{2,10}[.]+[a-zA-Z0-9]+" />
             <div class="checkbox email-ch">
               <img
-                src="https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1"
+                src="${checkboxImage}"
                 alt=""
                 width="20px"
                 height="20px"
@@ -93,31 +92,16 @@ function createFormMarkup(): string {
           </button>
         </div>
       </form>
-
 `;
-}
 
 const formValidate = (): void => {
-  const coverElem = document.getElementById('cover');
-  if (!coverElem) throw Error('App root element not found');
-
-  const formElem = document.getElementById('reg-form');
-  if (!formElem) throw Error('App root element not found');
-
-  const sendButton = document.getElementById('send');
-  if (!sendButton) throw Error('App root element not found');
-
-  const cancelButton = document.getElementById('cancel');
-  if (!cancelButton) throw Error('App root element not found');
-
+  const coverElem = document.getElementById('cover') as HTMLDivElement;
+  const formElem = document.getElementById('reg-form') as HTMLDivElement;
+  const sendButton = document.getElementById('send') as HTMLButtonElement;
+  const cancelButton = document.getElementById('cancel') as HTMLButtonElement;
   const nameField = <HTMLInputElement>document.getElementById('name');
-  if (!nameField) throw Error('App root element not found');
-
   const lastNameField = <HTMLInputElement>document.getElementById('lastName');
-  if (!lastNameField) throw Error('App root element not found');
-
   const emailField = <HTMLInputElement>document.getElementById('email');
-  if (!emailField) throw Error('App root element not found');
 
   formElem.classList.remove('hidden');
 
@@ -202,7 +186,7 @@ const formValidate = (): void => {
 };
 
 const addRegFormMarkup = (): void => {
-  formWrapper.innerHTML = createFormMarkup();
+  formWrapper.innerHTML = regFormMarkup;
 
   formValidate();
 };
