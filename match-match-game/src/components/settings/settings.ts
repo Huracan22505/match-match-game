@@ -2,8 +2,7 @@ import { navWrapper } from '../about/about';
 import { removeTimer } from '../timer/timer';
 import './settings.scss';
 
-function createSettingsMarkup(): string {
-  return `    <section class="settings-section">
+const settingsPageMarkup = `<section class="settings-section">
       <div class="container">
       <h2 class="title">Game cards</h2>
         <select class="select-css" id="game-categories">
@@ -22,7 +21,6 @@ function createSettingsMarkup(): string {
       </div>
     </section>
 `;
-}
 
 const settingsHendle = () => {
   const gameCategories: HTMLSelectElement | null =
@@ -47,7 +45,7 @@ const settingsHendle = () => {
 
 function settingsRender(): void {
   navWrapper.innerHTML = '';
-  navWrapper.insertAdjacentHTML('beforeend', createSettingsMarkup());
+  navWrapper.insertAdjacentHTML('beforeend', settingsPageMarkup);
   window.location.hash = 'settings';
 
   settingsHendle();
