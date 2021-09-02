@@ -1,1 +1,1 @@
-Train your memory! :)
+A game to train your memory.
