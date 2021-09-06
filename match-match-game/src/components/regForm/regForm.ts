@@ -5,8 +5,7 @@ import './regForm.scss';
 const formWrapper = document.createElement('div');
 refs.appElement?.append(formWrapper);
 
-const checkboxImage =
-  'https://clip2net.com/clip/m231034/c5779-clip-554b.png?nocache=1';
+const checkboxImage = './form-checkbox.png';
 
 const regFormMarkup = `<div class="reg-modal hidden" id="reg-form">
       <p class="modal__title">Registr New Player</p>
@@ -73,7 +72,7 @@ const regFormMarkup = `<div class="reg-modal hidden" id="reg-form">
           </div>
         </div>
         <div class="avatar-container">
-              <img class="img" id="uploadedImage" src="https://clip2net.com/clip/m231034/174d4-clip-6kb.png?nocache=1">
+              <img class="img" id="uploadedImage" src="./form-avatar.png">
               <input class="input" id="avatarUpload" name="upload" type="file">
             </div>
         <div class="modal__form__buttons">
