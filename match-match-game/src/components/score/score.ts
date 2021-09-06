@@ -19,16 +19,16 @@ function createScoreMarkup(
         <h2 class="title">Best players</h2>
         <div class="score-container">
           <ul class="score-list">${
-            data.length < 1
-              ? `<p class="name">There are no records yet. You need to play!</p>`
-              : sortedData
-                  .map(
-                    ({ name, lastName, email, score, avatar }): string =>
-                      `<li class="item">
+  data.length < 1
+    ? `<p class="name">There are no records yet. You need to play!</p>`
+    : sortedData
+      .map(
+        ({ name, lastName, email, score, avatar }): string =>
+          `<li class="item">
               <div class="name-container" >
               <img class="img" src="${
-                avatar || './form-avatar.png'
-              }" alt="" width="40px" height="40px" >
+  avatar || './form-avatar.png'
+}" alt="" width="40px" height="40px" >
               <div class="email-container" >
               <p class="name">
               ${name} ${lastName}
@@ -38,11 +38,11 @@ function createScoreMarkup(
               </div>
               <p class="rating">Score: <span class="count">${score}</span></p>
             </li>`,
-                  )
-                  .filter((v, i, a) => a.indexOf(v) === i)
-                  .slice(0, 10)
-                  .join('')
-          }
+      )
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .slice(0, 10)
+      .join('')
+}
           </ul>
         </div>
       </div>
